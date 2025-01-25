@@ -9,6 +9,8 @@ public class S_Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     private Transform originalParent;
     private int originalSiblingIndex;
 
+    public int dataValue;
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -41,10 +43,6 @@ public class S_Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         {
             rectTransform.SetParent(originalParent);
             rectTransform.SetSiblingIndex(originalSiblingIndex);
-        }
-        else
-        {
-            Debug.Log("Dropped on a valid spot!");
         }
     }
 }

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class S_Client : MonoBehaviour
+public class S_Client : MonoBehaviour, IDropHandler
 {
     [Header("Settings")]
     [SerializeField] float _timerToCustomerAparition;
@@ -45,6 +46,29 @@ public class S_Client : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        GameObject draggedObject = eventData.pointerDrag;
+
+        if (draggedObject != null)
+        {
+            S_Carte draggable = draggedObject.GetComponent<S_Carte>();
+            if (draggable != null)
+            {
+                int value = draggable.dataValue;
+
+                if (value == _customer.ItemWanted.Id)
+                {
+                    Debug.Log("Bonne valeur déposée !");
+                }
+                else
+                {
+                    Debug.Log("Mauvaise valeur déposée.");
+                }
+            }
+        }
     }
     IEnumerator CustomerSpawn()
     {
