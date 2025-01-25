@@ -27,7 +27,7 @@ public class S_UIManager : MonoBehaviour
     private void OnDisable()
     {
         callPause.action -= ShowPause;
-        unCallPause.action += UnShowPause;
+        unCallPause.action -= UnShowPause;
 
         callRestart.action -= Restart;
         callMenu.action -= Menu;
@@ -58,6 +58,8 @@ public class S_UIManager : MonoBehaviour
 
     private void UnShowPause()
     {
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+
         panelPause.SetActive(false);
 
         Time.timeScale = 1;
