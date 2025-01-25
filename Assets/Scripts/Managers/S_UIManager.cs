@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +8,7 @@ public class S_UIManager : MonoBehaviour
     [SerializeField] private RSE_UnCallPause unCallPause;
 
     [SerializeField] private RSE_CallRestart callRestart;
+    [SerializeField] private RSE_CallMenu callMenu;
     [SerializeField] private RSE_CallQuit callQuit;
 
     [Header("References")]
@@ -21,6 +20,7 @@ public class S_UIManager : MonoBehaviour
         unCallPause.action += UnShowPause;
 
         callRestart.action += Restart;
+        callMenu.action += Menu;
         callQuit.action += Quit;
     }
 
@@ -30,6 +30,7 @@ public class S_UIManager : MonoBehaviour
         unCallPause.action += UnShowPause;
 
         callRestart.action -= Restart;
+        callMenu.action -= Menu;
         callQuit.action -= Quit;
     }
 
@@ -69,6 +70,11 @@ public class S_UIManager : MonoBehaviour
         int currentSceneIndex = currentScene.buildIndex;
 
         SceneManager.LoadScene(currentSceneIndex);
+    }
+
+    private void Menu()
+    {
+        SceneManager.LoadScene("Scene_MainMenu");
     }
 
     private void Quit()
