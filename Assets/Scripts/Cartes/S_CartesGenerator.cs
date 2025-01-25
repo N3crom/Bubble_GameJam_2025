@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class S_CartesGenerator : MonoBehaviour
@@ -39,7 +40,7 @@ public class S_CartesGenerator : MonoBehaviour
             return;
         }
 
-        _rsoItemsListToDisplay.ItemsToDisplay.Add(_ssoItemsList.ItemsList[currentCustomer.ItemWanted.Id]);
+        _rsoItemsListToDisplay.ItemsToDisplay.Add(_ssoItemsList.ItemsList.FirstOrDefault(item => item.Id == currentCustomer.ItemWanted.Id));
 
         int numberCards = 1;
 
