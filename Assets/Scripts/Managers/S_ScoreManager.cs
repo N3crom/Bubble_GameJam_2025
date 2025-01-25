@@ -6,9 +6,9 @@ public class S_ScoreManager : MonoBehaviour
 {
     //[Header("Settings")]
     [Header("Reference")]
-    RSO_Score _rsoScore;
-    RSE_AddScore _rseAddScore;
-    RSE_OnScoreChanged _rseOnScoreChanged;
+    [SerializeField] RSO_Score _rsoScore;
+    [SerializeField] RSE_AddScore _rseAddScore;
+    [SerializeField] RSE_OnScoreChanged _rseOnScoreChanged;
 
     void Start()
     {

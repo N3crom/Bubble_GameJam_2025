@@ -5,13 +5,13 @@ using UnityEngine;
 
 public enum CustomerState
 {
-    Normal,
+    Neutral,
     Happy,
     Angry
 }
 public class Customer
 {
     public Item ItemWanted;
-    public List<Sprite> SpriteList;
+    public Dictionary<CustomerState, Sprite> SpritesDict;
     public CustomerState CustomerState;
 }

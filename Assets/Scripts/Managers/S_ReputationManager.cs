@@ -5,11 +5,11 @@ using UnityEngine;
 public class S_ReputationManager : MonoBehaviour
 {
     [Header("Reference")]
-    RSO_Reputation _rsoReputation;
-    RSE_AddReputation _rseAddScore;
-    RSE_RemoveReputation _rseRemoveScore;
-    RSE_OnScoreChanged _rseOnScoreChanged;
-    RSE_OnGameLost _rseOnGameLost;
+    [SerializeField] RSO_Reputation _rsoReputation;
+    [SerializeField] RSE_AddReputation _rseAddScore;
+    [SerializeField] RSE_RemoveReputation _rseRemoveScore;
+    [SerializeField] RSE_OnScoreChanged _rseOnScoreChanged;
+    [SerializeField] RSE_OnGameLost _rseOnGameLost;
 
     int _startReputation = 0;
     void Start()
@@ -17,6 +17,7 @@ public class S_ReputationManager : MonoBehaviour
         _startReputation = _rsoReputation.ReputationCurrency;
         _rseAddScore.action += AddReputation;
         _rseRemoveScore.action += RemoveReputation;
+
     }
 
     private void OnDestroy()

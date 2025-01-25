@@ -19,4 +19,13 @@ MonoBehaviour:
     - 
     - 
     - 
+    - 
+    - 
+    Sprite: {fileID: 0}
+  - Id: 0
+    Name: Exemple
+    Descriptions:
+    - 
+    - 
+    - 
     Sprite: {fileID: 0}
