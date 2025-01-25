@@ -1310,10 +1310,12 @@ MonoBehaviour:
   score: {fileID: 11400000, guid: ab15efd30b0633541a27ca3f9825155b, type: 2}
   impatientTime: {fileID: 11400000, guid: a1941a1c28d8b0248a38694806fc7687, type: 2}
   reputation: {fileID: 11400000, guid: 155cf26875d15d74fa3d4d9c3353811f, type: 2}
+  talkTime: {fileID: 11400000, guid: bde18537c75ff294685e668a9d902e6a, type: 2}
   callPause: {fileID: 11400000, guid: 742524729367a9a46a92206e364f2df1, type: 2}
   onScoreChanged: {fileID: 11400000, guid: 74bb29d7a267b9548999d8f11a0f435e, type: 2}
   onReputationChanged: {fileID: 11400000, guid: 9ad2ed10df6815445a7fc1b93ad62405, type: 2}
   onTimerStart: {fileID: 11400000, guid: ef7c21bc8cfaa8841983382d0898ee7b, type: 2}
+  onTimerEnd: {fileID: 11400000, guid: 494876499fabeae468d3c14e712dd3c8, type: 2}
   uiManager: {fileID: 6136716799068188112}
   textScore: {fileID: 1244258164528817002}
   textimpatientTime: {fileID: 1926882215524586437}
@@ -5316,8 +5318,8 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 10
-  m_WholeNumbers: 1
-  m_Value: 8
+  m_WholeNumbers: 0
+  m_Value: 8.81
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

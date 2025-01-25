@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class S_GameUI : MonoBehaviour
 {
@@ -13,11 +14,14 @@ public class S_GameUI : MonoBehaviour
 
     [SerializeField] private RSO_Reputation reputation;
 
+    [SerializeField] private RSO_TalkTime talkTime;
+
     [Header("RSE")]
     [SerializeField] private RSE_CallPause callPause;
     [SerializeField] private RSE_OnScoreChanged onScoreChanged;
     [SerializeField] private RSE_OnReputationChanged onReputationChanged;
     [SerializeField] private RSE_OnTimerStart onTimerStart;
+    [SerializeField] private RSE_OnTimerEnd onTimerEnd;
 
     [Header("References")]
     [SerializeField] private S_UIManager uiManager;
@@ -52,12 +56,49 @@ public class S_GameUI : MonoBehaviour
     {
         textScore.text = score.Score.ToString();
 
-        textimpatientTime.text = impatientTime.ImpatientTime.ToString() + "s";
+        textimpatientTime.text = "";
         sliderimpatientTime.value = impatientTime.ImpatientTime;
         sliderimpatientTime.maxValue = impatientTime.ImpatientTime;
 
         sliderReputation.value = reputation.ReputationCurrency;
         textReputation.text = reputation.ReputationCurrency.ToString() + "%";
+    }
+
+    private IEnumerator TextDisplay(string text)
+    {
+        textdescription.text = "";
+
+        for (int i = 0; i < text.Length; i++)
+        {
+            textdescription.text += text[i];
+
+            yield return new WaitForSeconds(talkTime.TalkTime);
+        }
+    }
+
+    private IEnumerator SliderTime()
+    {
+        sliderimpatientTime.maxValue = impatientTime.ImpatientTime;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < impatientTime.ImpatientTime)
+        {
+            elapsedTime += Time.deltaTime;
+
+            textimpatientTime.text = Mathf.Lerp(impatientTime.ImpatientTime, 0f, elapsedTime / impatientTime.ImpatientTime).ToString("F2") + "s";
+            sliderimpatientTime.value = Mathf.Lerp(impatientTime.ImpatientTime, 0f, elapsedTime / impatientTime.ImpatientTime);
+
+            yield return null;
+        }
+
+        sliderimpatientTime.value = 0;
+
+        onTimerEnd.RaiseEvent();
+
+        textimpatientTime.text = "";
+        sliderimpatientTime.value = impatientTime.ImpatientTime;
+        sliderimpatientTime.maxValue = impatientTime.ImpatientTime;
     }
 
     private void StartTimer()
@@ -66,7 +107,11 @@ public class S_GameUI : MonoBehaviour
 
         int index = Random.Range(0, currentCustomer.CurrentCustomer.ItemWanted.Descriptions.Count);
 
-        textdescription.text = currentCustomer.CurrentCustomer.ItemWanted.Descriptions[index];
+        string text = currentCustomer.CurrentCustomer.ItemWanted.Descriptions[index];
+
+        StartCoroutine(TextDisplay(text));
+
+        StartCoroutine(SliderTime());
     }
 
     private void ScoreChange()
