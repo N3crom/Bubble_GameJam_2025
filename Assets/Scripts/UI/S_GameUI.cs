@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class S_GameUI : MonoBehaviour
 {
     [Header("RSO")]
+    [SerializeField] private RSO_CurrentCustomers currentCustomer;
+
     [SerializeField] private RSO_Score score;
 
     [SerializeField] private RSO_ImpatientTime impatientTime;
@@ -30,6 +32,7 @@ public class S_GameUI : MonoBehaviour
 
         textimpatientTime.text = impatientTime.ImpatientTime.ToString() + "s";
         sliderimpatientTime.value = impatientTime.ImpatientTime;
+        sliderimpatientTime.maxValue = impatientTime.ImpatientTime;
 
         sliderReputation.value = reputation.ReputationCurrency;
         textReputation.text = reputation.ReputationCurrency.ToString() + "%";
