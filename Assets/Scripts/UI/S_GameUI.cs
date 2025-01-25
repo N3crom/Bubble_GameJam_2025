@@ -15,7 +15,12 @@ public class S_GameUI : MonoBehaviour
 
     [SerializeField] private RSO_Reputation reputation;
 
+    [Header("RSE")]
+    [SerializeField] private RSE_CallPause callPause;
+
     [Header("References")]
+    [SerializeField] private S_UIManager uiManager;
+
     [SerializeField] private TextMeshProUGUI textScore;
 
     [SerializeField] private TextMeshProUGUI textimpatientTime;

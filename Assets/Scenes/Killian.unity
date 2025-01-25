@@ -1795,6 +1795,8 @@ MonoBehaviour:
   score: {fileID: 11400000, guid: ab15efd30b0633541a27ca3f9825155b, type: 2}
   impatientTime: {fileID: 11400000, guid: a1941a1c28d8b0248a38694806fc7687, type: 2}
   reputation: {fileID: 11400000, guid: 155cf26875d15d74fa3d4d9c3353811f, type: 2}
+  callPause: {fileID: 11400000, guid: 742524729367a9a46a92206e364f2df1, type: 2}
+  uiManager: {fileID: 1420838537}
   textScore: {fileID: 595217160}
   textimpatientTime: {fileID: 1127006836}
   sliderimpatientTime: {fileID: 1413661304}
@@ -2824,6 +2826,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1420838536}
+  - component: {fileID: 1420838537}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -2848,6 +2851,19 @@ Transform:
   - {fileID: 585007949}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1420838537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420838535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d297d24f6a0c94d877bb46967848ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  callPause: {fileID: 11400000, guid: 742524729367a9a46a92206e364f2df1, type: 2}
 --- !u!1 &1437619824
 GameObject:
   m_ObjectHideFlags: 0
@@ -4968,7 +4984,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2117783459}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 742524729367a9a46a92206e364f2df1, type: 2}
+        m_TargetAssemblyTypeName: RuntimeScriptableEvent, Assembly-CSharp
+        m_MethodName: RaiseEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2117783459
 MonoBehaviour:
   m_ObjectHideFlags: 0
