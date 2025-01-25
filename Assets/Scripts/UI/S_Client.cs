@@ -29,9 +29,8 @@ public class S_Client : MonoBehaviour
         _rseOnCustomerStateChange.action += ChangeStateSprite;
         _rseOnClientCreate.action += Initialize;
 
-        //_imageClient.gameObject.SetActive(false);
         _rectTransform.localScale = _startScale;
-        StartCoroutine(CustomerSpawn());
+        //StartCoroutine(CustomerSpawn());
 
     }
 
@@ -49,7 +48,13 @@ public class S_Client : MonoBehaviour
     }
     IEnumerator CustomerSpawn()
     {
-        _imageClient.gameObject.SetActive(true);
+        _imageClient.gameObject.GetComponent<Image>().enabled = false;
+
+        _imageClient.color = Color.black;
+
+        yield return new WaitForSeconds(1);
+
+        _imageClient.gameObject.GetComponent<Image>().enabled = true;
 
         float timer = 0f;
         while (timer < _timerToCustomerAparition)
@@ -66,9 +71,14 @@ public class S_Client : MonoBehaviour
                 _rectTransform.localScale = Vector3.Lerp(_startScale, _endScale, timer / _timerToCustomerAparition);
             }
 
+            yield return null;
 
-            _rectTransform.localScale = _endScale;
+
         }
+
+        //_rectTransform.localScale = _endScale;
+        _rseOnTimerStart.RaiseEvent();
+
         yield return null;
     }
 
@@ -84,6 +94,7 @@ public class S_Client : MonoBehaviour
     {
         _customer = customer;
         _imageClient.sprite = customer.SpritesDict[customer.CustomerState];
+        StartCoroutine(CustomerSpawn());
     }
 
     void ChangeStateSprite(CustomerState customerState)

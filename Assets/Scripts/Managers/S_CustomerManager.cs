@@ -12,6 +12,7 @@ public class S_CustomerManager : MonoBehaviour
     [SerializeField] RSE_OnBadArticleGive _rseOnBadArticleGive;
     [SerializeField] RSE_OnItemGive _rseOnItemGive;
     [SerializeField] RSE_OnClientCreate _rseOnClientCreate;
+    [SerializeField] RSE_OnClientLeave _rseOnClientLeave;
 
     Customer CurrentCustomer;
 
@@ -27,14 +28,20 @@ public class S_CustomerManager : MonoBehaviour
         _ssoSpritesCustomersList.ClearDictionnary();
 
         _ssoSpritesCustomersList.Setup();
+
+        _rseOnClientLeave.action += CreateCustomer;
+
+        CreateCustomer();
     }
 
     private void OnDestroy()
     {
         _ssoSpritesCustomersList.ClearDictionnary();
         _rseOnItemGive.action -= TcheckItemIdGive;
+        _rseOnClientLeave.action -= CreateCustomer;
+
     }
-    
+
 
     void CreateCustomer()
     {

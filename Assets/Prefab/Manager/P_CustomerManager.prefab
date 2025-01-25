@@ -51,3 +51,4 @@ MonoBehaviour:
   _rseOnBadArticleGive: {fileID: 11400000, guid: fd079153e38117c4ab9c9d1a8250bc6e, type: 2}
   _rseOnItemGive: {fileID: 11400000, guid: aca25a74825f37f46829c6f08aef87b3, type: 2}
   _rseOnClientCreate: {fileID: 11400000, guid: 7e0bd69783cd9a4448f1460c66e3483c, type: 2}
+  _rseOnClientLeave: {fileID: 11400000, guid: 74fc1731de71e4045a1f79efbc0a717e, type: 2}

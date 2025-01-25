@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CustomerSprites:
   - Key: 0
-    Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    Value: {fileID: 21300000, guid: 1210b768c593ec0428b3736f7d9e1833, type: 3}
   - Key: 1
-    Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    Value: {fileID: 21300000, guid: 0f2bdc11b4c55304d81865acfb4aee7a, type: 3}
   - Key: 2
-    Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    Value: {fileID: 21300000, guid: 118e646d5f46ae2489f838ae09ae8ab1, type: 3}
   NameCustomers: 1
