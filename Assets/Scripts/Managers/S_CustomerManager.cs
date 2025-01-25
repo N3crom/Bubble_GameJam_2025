@@ -20,6 +20,7 @@ public class S_CustomerManager : MonoBehaviour
     [SerializeField] RSO_ReputationGain _rsoReputationGain;
     [SerializeField] RSE_AddScore _rseAddScore;
     [SerializeField] RSE_StopTimer _rseStopTimer;
+    [SerializeField] RSE_OnCustomerStateChange _rseOnCustomerStateChange;
 
     Customer CurrentCustomer;
 
@@ -74,6 +75,7 @@ public class S_CustomerManager : MonoBehaviour
         customer.SpritesDict = spritesDict;
 
         CurrentCustomer = customer;
+
         _rsoCurrentCustomers.CurrentCustomer = customer;
         _rseOnClientCreate.RaiseEvent(customer);
     }
@@ -83,16 +85,25 @@ public class S_CustomerManager : MonoBehaviour
         if(CurrentCustomer.ItemWanted.Id == item.Id)
         {
             _rseOnGoodArticleGive.RaiseEvent();
+
             _rseAddReputation.RaiseEvent(_rsoReputationGain.ReputationGain);
+
+            _rseOnCustomerStateChange.RaiseEvent(CustomerState.Happy);
+
             _rseAddScore.RaiseEvent(10);
-            CreateCustomer();
+
+            StartCoroutine(SpawnDelay());
 
         }
         else
         {
             _rseOnBadArticleGive.RaiseEvent();
+
             _rseOnRemoveReputation.RaiseEvent(_rsoReputationLost.ReputationLost);
-            CreateCustomer();
+
+            _rseOnCustomerStateChange.RaiseEvent(CustomerState.Angry);
+
+            StartCoroutine(SpawnDelay());
 
         }
 
@@ -102,7 +113,16 @@ public class S_CustomerManager : MonoBehaviour
     void TimerEnd()
     {
         _rseOnRemoveReputation.RaiseEvent(_rsoReputationLost.ReputationLost);
+        StartCoroutine(SpawnDelay());
+    }
+
+    IEnumerator SpawnDelay()
+    {
+        yield return new WaitForSeconds(2);
+
         CreateCustomer();
+
+        yield return null;
     }
 
 

@@ -59,3 +59,4 @@ MonoBehaviour:
   _rsoReputationGain: {fileID: 11400000, guid: b4cd0c2e7dc660846be75fee45c9bba7, type: 2}
   _rseAddScore: {fileID: 11400000, guid: 6c577d56fef2de64fb63986e18cb2a5f, type: 2}
   _rseStopTimer: {fileID: 11400000, guid: a22d179225be23d48be18def8d8d276c, type: 2}
+  _rseOnCustomerStateChange: {fileID: 11400000, guid: cdea1d28ba509c0419941471beb0ac63, type: 2}
