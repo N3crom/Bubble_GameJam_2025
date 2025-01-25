@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a28fc81e4d06d4b4b8810477fcd3cfd8, type: 3}
   m_Name: PlayerReputation
   m_EditorClassIdentifier: 
-  ReputationCurrency: 0
+  ReputationCurrency: 50

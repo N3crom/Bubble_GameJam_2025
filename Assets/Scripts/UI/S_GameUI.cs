@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class S_GameUI : MonoBehaviour
+{
+    [Header("RSO")]
+    [SerializeField] private RSO_Score score;
+
+    [SerializeField] private RSO_ImpatientTime impatientTime;
+
+    [SerializeField] private RSO_Reputation reputation;
+
+    [Header("References")]
+    [SerializeField] private TextMeshProUGUI textScore;
+
+    [SerializeField] private TextMeshProUGUI textimpatientTime;
+    [SerializeField] private Slider sliderimpatientTime;
+
+    [SerializeField] private Slider sliderReputation;
+    [SerializeField] private TextMeshProUGUI textReputation;
+
+    [SerializeField] private TextMeshProUGUI textdescription;
+
+    private void Start()
+    {
+        textScore.text = score.Score.ToString();
+
+        textimpatientTime.text = impatientTime.ImpatientTime.ToString() + "s";
+        sliderimpatientTime.value = impatientTime.ImpatientTime;
+
+        sliderReputation.value = reputation.ReputationCurrency;
+        textReputation.text = reputation.ReputationCurrency.ToString() + "%";
+
+        textdescription.text = "";
+    }
+}
