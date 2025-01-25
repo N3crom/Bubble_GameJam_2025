@@ -17,6 +17,7 @@ public class S_GameUI : MonoBehaviour
     [SerializeField] private RSE_CallPause callPause;
     [SerializeField] private RSE_OnScoreChanged onScoreChanged;
     [SerializeField] private RSE_OnReputationChanged onReputationChanged;
+    [SerializeField] private RSE_OnTimerStart onTimerStart;
 
     [Header("References")]
     [SerializeField] private S_UIManager uiManager;
@@ -35,12 +36,16 @@ public class S_GameUI : MonoBehaviour
     {
         onScoreChanged.action += ScoreChange;
         onReputationChanged.action += ReputationChanged;
+
+        onTimerStart.action += StartTimer;
     }
 
     private void OnDisable()
     {
         onScoreChanged.action -= ScoreChange;
         onReputationChanged.action -= ReputationChanged;
+
+        onTimerStart.action -= StartTimer;
     }
 
     private void Start()
@@ -53,11 +58,15 @@ public class S_GameUI : MonoBehaviour
 
         sliderReputation.value = reputation.ReputationCurrency;
         textReputation.text = reputation.ReputationCurrency.ToString() + "%";
+    }
+
+    private void StartTimer()
+    {
+        textdescription.transform.parent.gameObject.SetActive(true);
 
         int index = Random.Range(0, currentCustomer.CurrentCustomer.ItemWanted.Descriptions.Count);
 
         textdescription.text = currentCustomer.CurrentCustomer.ItemWanted.Descriptions[index];
-        
     }
 
     private void ScoreChange()
