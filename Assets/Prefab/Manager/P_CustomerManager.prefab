@@ -49,3 +49,5 @@ MonoBehaviour:
   _ssoSpritesCustomersList: {fileID: 11400000, guid: 1a67c6209ac2b6242a47e03e7830410c, type: 2}
   _rseOnGoodArticleGive: {fileID: 11400000, guid: 5881d2003eb12b542af2aa70f55fefad, type: 2}
   _rseOnBadArticleGive: {fileID: 11400000, guid: fd079153e38117c4ab9c9d1a8250bc6e, type: 2}
+  _rseOnItemGive: {fileID: 11400000, guid: aca25a74825f37f46829c6f08aef87b3, type: 2}
+  _rseOnClientCreate: {fileID: 11400000, guid: 7e0bd69783cd9a4448f1460c66e3483c, type: 2}
