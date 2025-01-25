@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct Item
+public class Item
 {
     public int Id;
     public string Name;
