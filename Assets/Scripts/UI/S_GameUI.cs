@@ -54,7 +54,10 @@ public class S_GameUI : MonoBehaviour
         sliderReputation.value = reputation.ReputationCurrency;
         textReputation.text = reputation.ReputationCurrency.ToString() + "%";
 
-        textdescription.text = "";
+        int index = Random.Range(0, currentCustomer.CurrentCustomer.ItemWanted.Descriptions.Count);
+
+        textdescription.text = currentCustomer.CurrentCustomer.ItemWanted.Descriptions[index];
+        
     }
 
     private void ScoreChange()
