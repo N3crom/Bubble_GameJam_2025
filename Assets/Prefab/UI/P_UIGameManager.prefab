@@ -1316,6 +1316,7 @@ MonoBehaviour:
   onReputationChanged: {fileID: 11400000, guid: 9ad2ed10df6815445a7fc1b93ad62405, type: 2}
   onTimerStart: {fileID: 11400000, guid: ef7c21bc8cfaa8841983382d0898ee7b, type: 2}
   onTimerEnd: {fileID: 11400000, guid: 494876499fabeae468d3c14e712dd3c8, type: 2}
+  stopTimer: {fileID: 11400000, guid: a22d179225be23d48be18def8d8d276c, type: 2}
   uiManager: {fileID: 6136716799068188112}
   textScore: {fileID: 1244258164528817002}
   textimpatientTime: {fileID: 1926882215524586437}

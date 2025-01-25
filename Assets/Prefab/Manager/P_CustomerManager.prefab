@@ -58,3 +58,4 @@ MonoBehaviour:
   _rsoReputationLost: {fileID: 11400000, guid: a59c0c7ac7efc4e4082b3bc3673997ec, type: 2}
   _rsoReputationGain: {fileID: 11400000, guid: b4cd0c2e7dc660846be75fee45c9bba7, type: 2}
   _rseAddScore: {fileID: 11400000, guid: 6c577d56fef2de64fb63986e18cb2a5f, type: 2}
+  _rseStopTimer: {fileID: 11400000, guid: a22d179225be23d48be18def8d8d276c, type: 2}

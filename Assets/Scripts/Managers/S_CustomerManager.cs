@@ -19,6 +19,7 @@ public class S_CustomerManager : MonoBehaviour
     [SerializeField] RSO_ReputationLost _rsoReputationLost;
     [SerializeField] RSO_ReputationGain _rsoReputationGain;
     [SerializeField] RSE_AddScore _rseAddScore;
+    [SerializeField] RSE_StopTimer _rseStopTimer;
 
     Customer CurrentCustomer;
 
@@ -94,6 +95,8 @@ public class S_CustomerManager : MonoBehaviour
             CreateCustomer();
 
         }
+
+        _rseStopTimer.RaiseEvent();
     }
 
     void TimerEnd()

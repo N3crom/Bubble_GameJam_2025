@@ -22,6 +22,7 @@ public class S_GameUI : MonoBehaviour
     [SerializeField] private RSE_OnReputationChanged onReputationChanged;
     [SerializeField] private RSE_OnTimerStart onTimerStart;
     [SerializeField] private RSE_OnTimerEnd onTimerEnd;
+    [SerializeField] private RSE_StopTimer stopTimer;
 
     [Header("References")]
     [SerializeField] private S_UIManager uiManager;
@@ -36,12 +37,16 @@ public class S_GameUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI textdescription;
 
+    private Coroutine coroutineText;
+    private Coroutine coroutineTimer;
+
     private void OnEnable()
     {
         onScoreChanged.action += ScoreChange;
         onReputationChanged.action += ReputationChanged;
 
         onTimerStart.action += StartTimer;
+        stopTimer.action += StopTimer;
     }
 
     private void OnDisable()
@@ -50,6 +55,7 @@ public class S_GameUI : MonoBehaviour
         onReputationChanged.action -= ReputationChanged;
 
         onTimerStart.action -= StartTimer;
+        stopTimer.action -= StopTimer;
     }
 
     private void Start()
@@ -109,9 +115,22 @@ public class S_GameUI : MonoBehaviour
 
         string text = currentCustomer.CurrentCustomer.ItemWanted.Descriptions[index];
 
-        StartCoroutine(TextDisplay(text));
+        coroutineText = StartCoroutine(TextDisplay(text));
 
-        StartCoroutine(SliderTime());
+        coroutineTimer = StartCoroutine(SliderTime());
+    }
+
+    private void StopTimer()
+    {
+        if(coroutineText != null)
+        {
+            StopCoroutine(coroutineText);
+        }
+        
+        if(coroutineTimer != null)
+        {
+            StopCoroutine(coroutineTimer);
+        }
     }
 
     private void ScoreChange()
