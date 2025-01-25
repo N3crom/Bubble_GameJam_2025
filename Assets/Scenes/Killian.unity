@@ -1791,6 +1791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f1c394f430b79941a1ec6abd255c084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentCustomer: {fileID: 11400000, guid: 5ec40a2c4729c514280280275a23751d, type: 2}
   score: {fileID: 11400000, guid: ab15efd30b0633541a27ca3f9825155b, type: 2}
   impatientTime: {fileID: 11400000, guid: a1941a1c28d8b0248a38694806fc7687, type: 2}
   reputation: {fileID: 11400000, guid: 155cf26875d15d74fa3d4d9c3353811f, type: 2}
