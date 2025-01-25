@@ -8,7 +8,7 @@ public class S_ReputationManager : MonoBehaviour
     [SerializeField] RSO_Reputation _rsoReputation;
     [SerializeField] RSE_AddReputation _rseAddScore;
     [SerializeField] RSE_RemoveReputation _rseRemoveScore;
-    [SerializeField] RSE_OnScoreChanged _rseOnScoreChanged;
+    [SerializeField] RSE_OnReputationChanged _rseOnReputationChanged;
     [SerializeField] RSE_OnGameLost _rseOnGameLost;
 
     int _startReputation = 0;
@@ -30,13 +30,14 @@ public class S_ReputationManager : MonoBehaviour
     private void AddReputation(int reputationAdd)
     {
         _rsoReputation.ReputationCurrency += reputationAdd;
-        _rseOnScoreChanged.RaiseEvent();
+        if(_rsoReputation.ReputationCurrency > 100) _rsoReputation.ReputationCurrency = 100;
+        _rseOnReputationChanged.RaiseEvent();
     }
 
     private void RemoveReputation(int reputationToRemove)
     {
         _rsoReputation.ReputationCurrency -= reputationToRemove;
-        _rseOnScoreChanged.RaiseEvent();
+        _rseOnReputationChanged.RaiseEvent();
 
         if(_rsoReputation.ReputationCurrency <= 0)
         {

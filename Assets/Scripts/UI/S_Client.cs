@@ -20,6 +20,7 @@ public class S_Client : MonoBehaviour, IDropHandler
     [SerializeField] RSE_OnItemGive _rseOnItemGive;
     [SerializeField] RSE_OnClientCreate _rseOnClientCreate;
     [SerializeField] RSE_OnCustomerStateChange _rseOnCustomerStateChange;
+
     
     private Customer _customer;
 
@@ -67,6 +68,9 @@ public class S_Client : MonoBehaviour, IDropHandler
                 {
                     Debug.Log("Mauvaise valeur déposée.");
                 }
+                //_rseOnItemGive.RaiseEvent(value);
+                _rseOnItemGive.RaiseEvent(_customer.ItemWanted);
+
             }
         }
     }

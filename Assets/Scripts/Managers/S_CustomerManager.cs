@@ -13,6 +13,12 @@ public class S_CustomerManager : MonoBehaviour
     [SerializeField] RSE_OnItemGive _rseOnItemGive;
     [SerializeField] RSE_OnClientCreate _rseOnClientCreate;
     [SerializeField] RSE_OnClientLeave _rseOnClientLeave;
+    [SerializeField] RSE_OnTimerEnd _rseOnTimerEnd;
+    [SerializeField] RSE_RemoveReputation _rseOnRemoveReputation;
+    [SerializeField] RSE_AddReputation _rseAddReputation;
+    [SerializeField] RSO_ReputationLost _rsoReputationLost;
+    [SerializeField] RSO_ReputationGain _rsoReputationGain;
+    [SerializeField] RSE_AddScore _rseAddScore;
 
     Customer CurrentCustomer;
 
@@ -30,6 +36,7 @@ public class S_CustomerManager : MonoBehaviour
         _ssoSpritesCustomersList.Setup();
 
         _rseOnClientLeave.action += CreateCustomer;
+        _rseOnTimerEnd.action += TimerEnd;
 
         CreateCustomer();
     }
@@ -39,6 +46,8 @@ public class S_CustomerManager : MonoBehaviour
         _ssoSpritesCustomersList.ClearDictionnary();
         _rseOnItemGive.action -= TcheckItemIdGive;
         _rseOnClientLeave.action -= CreateCustomer;
+        _rseOnTimerEnd.action -= TimerEnd;
+
 
     }
 
@@ -73,11 +82,24 @@ public class S_CustomerManager : MonoBehaviour
         if(CurrentCustomer.ItemWanted.Id == item.Id)
         {
             _rseOnGoodArticleGive.RaiseEvent();
+            _rseAddReputation.RaiseEvent(_rsoReputationGain.ReputationGain);
+            _rseAddScore.RaiseEvent(10);
+            CreateCustomer();
+
         }
         else
         {
             _rseOnBadArticleGive.RaiseEvent();
+            _rseOnRemoveReputation.RaiseEvent(_rsoReputationLost.ReputationLost);
+            CreateCustomer();
+
         }
+    }
+
+    void TimerEnd()
+    {
+        _rseOnRemoveReputation.RaiseEvent(_rsoReputationLost.ReputationLost);
+        CreateCustomer();
     }
 
 

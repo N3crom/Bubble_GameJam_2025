@@ -52,3 +52,9 @@ MonoBehaviour:
   _rseOnItemGive: {fileID: 11400000, guid: aca25a74825f37f46829c6f08aef87b3, type: 2}
   _rseOnClientCreate: {fileID: 11400000, guid: 7e0bd69783cd9a4448f1460c66e3483c, type: 2}
   _rseOnClientLeave: {fileID: 11400000, guid: 74fc1731de71e4045a1f79efbc0a717e, type: 2}
+  _rseOnTimerEnd: {fileID: 11400000, guid: 494876499fabeae468d3c14e712dd3c8, type: 2}
+  _rseOnRemoveReputation: {fileID: 11400000, guid: 5306950507e60d44188ae9e82f8848b7, type: 2}
+  _rseAddReputation: {fileID: 11400000, guid: c9a2d6105525be5419dffb2785dbf3b5, type: 2}
+  _rsoReputationLost: {fileID: 11400000, guid: a59c0c7ac7efc4e4082b3bc3673997ec, type: 2}
+  _rsoReputationGain: {fileID: 11400000, guid: b4cd0c2e7dc660846be75fee45c9bba7, type: 2}
+  _rseAddScore: {fileID: 11400000, guid: 6c577d56fef2de64fb63986e18cb2a5f, type: 2}
