@@ -17,6 +17,8 @@ public class S_GameUI : MonoBehaviour
 
     [Header("RSE")]
     [SerializeField] private RSE_CallPause callPause;
+    [SerializeField] private RSE_OnScoreChanged onScoreChanged;
+    [SerializeField] private RSE_OnReputationChanged onReputationChanged;
 
     [Header("References")]
     [SerializeField] private S_UIManager uiManager;
@@ -31,6 +33,18 @@ public class S_GameUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI textdescription;
 
+    private void OnEnable()
+    {
+        onScoreChanged.action += ScoreChange;
+        onReputationChanged.action += ReputationChanged;
+    }
+
+    private void OnDisable()
+    {
+        onScoreChanged.action -= ScoreChange;
+        onReputationChanged.action -= ReputationChanged;
+    }
+
     private void Start()
     {
         textScore.text = score.Score.ToString();
@@ -43,5 +57,16 @@ public class S_GameUI : MonoBehaviour
         textReputation.text = reputation.ReputationCurrency.ToString() + "%";
 
         textdescription.text = "";
+    }
+
+    private void ScoreChange()
+    {
+        textScore.text = score.Score.ToString();
+    }
+
+    private void ReputationChanged()
+    {
+        sliderReputation.value = reputation.ReputationCurrency;
+        textReputation.text = reputation.ReputationCurrency.ToString() + "%";
     }
 }
