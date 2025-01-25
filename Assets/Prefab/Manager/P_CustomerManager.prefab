@@ -47,3 +47,5 @@ MonoBehaviour:
   _rsoCurrentCustomers: {fileID: 11400000, guid: 5ec40a2c4729c514280280275a23751d, type: 2}
   _rsoItemsList: {fileID: 11400000, guid: f2b7c6736c5292b479fe6311fbfd3973, type: 2}
   _ssoSpritesCustomersList: {fileID: 11400000, guid: 1a67c6209ac2b6242a47e03e7830410c, type: 2}
+  _rseOnGoodArticleGive: {fileID: 11400000, guid: 5881d2003eb12b542af2aa70f55fefad, type: 2}
+  _rseOnBadArticleGive: {fileID: 11400000, guid: fd079153e38117c4ab9c9d1a8250bc6e, type: 2}

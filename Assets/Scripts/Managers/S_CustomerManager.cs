@@ -8,6 +8,12 @@ public class S_CustomerManager : MonoBehaviour
     [SerializeField] RSO_CurrentCustomers _rsoCurrentCustomers;
     [SerializeField] SSO_ItemsList _rsoItemsList;
     [SerializeField] SSO_SpritesCustomersList _ssoSpritesCustomersList;
+    [SerializeField] RSE_OnGoodArticleGive _rseOnGoodArticleGive;
+    [SerializeField] RSE_OnBadArticleGive _rseOnBadArticleGive;
+    [SerializeField] RSE_OnItemGive _rseOnItemGive;
+    [SerializeField] RSE_OnClientCreate _rseOnClientCreate;
+
+    Customer CurrentCustomer;
 
     private void Awake()
     {
@@ -16,18 +22,15 @@ public class S_CustomerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _rseOnItemGive.action += TcheckItemIdGive;
     }
 
     private void OnDestroy()
     {
         _ssoSpritesCustomersList.ClearDictionnary();
+        _rseOnItemGive.action -= TcheckItemIdGive;
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     void CreateCustomer()
     {
@@ -49,7 +52,22 @@ public class S_CustomerManager : MonoBehaviour
         customer.ItemWanted = itemWanted;
         customer.SpritesDict = spritesDict;
 
+        CurrentCustomer = customer;
         _rsoCurrentCustomers.CurrentCustomer = customer;
+        _rseOnClientCreate.RaiseEvent(customer);
     }
+
+    void TcheckItemIdGive(Item item)
+    {
+        if(CurrentCustomer.ItemWanted.Id == item.Id)
+        {
+            _rseOnGoodArticleGive.RaiseEvent();
+        }
+        else
+        {
+            _rseOnBadArticleGive.RaiseEvent();
+        }
+    }
+
 
 }
