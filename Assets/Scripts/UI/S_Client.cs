@@ -29,8 +29,9 @@ public class S_Client : MonoBehaviour
         _rseOnCustomerStateChange.action += ChangeStateSprite;
         _rseOnClientCreate.action += Initialize;
 
-        _imageClient.gameObject.SetActive(false);
+        //_imageClient.gameObject.SetActive(false);
         _rectTransform.localScale = _startScale;
+        StartCoroutine(CustomerSpawn());
 
     }
 

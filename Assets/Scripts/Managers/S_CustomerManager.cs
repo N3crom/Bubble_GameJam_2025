@@ -17,12 +17,16 @@ public class S_CustomerManager : MonoBehaviour
 
     private void Awake()
     {
-        _ssoSpritesCustomersList.Setup();
+       
     }
     // Start is called before the first frame update
     void Start()
     {
         _rseOnItemGive.action += TcheckItemIdGive;
+
+        _ssoSpritesCustomersList.ClearDictionnary();
+
+        _ssoSpritesCustomersList.Setup();
     }
 
     private void OnDestroy()

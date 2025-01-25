@@ -13,7 +13,7 @@ public class KeyValuePair
 [CreateAssetMenu(fileName = "CustomerSprites", menuName = "Data/SSO/CustomerSprites")]
 public class SSO_CustomerSprites : ScriptableObject
 {
-    [SerializeField]private List<KeyValuePair> CustomerSprites;
+    [SerializeField]private List<KeyValuePair> CustomerSprites = new List<KeyValuePair>();
     public string NameCustomers;
     public Dictionary<CustomerState, Sprite> SpritesCustomersDictionnary = new Dictionary<CustomerState, Sprite>();
 
