@@ -15,10 +15,12 @@ public class S_ScoreManager : MonoBehaviour
     [SerializeField] RSO_CurrentImpatientTime _rsoCurrentImpatientTime;
     [SerializeField] SSO_ScoreMultiplicateur _ssoScoreMultiplicateur;
 
+    [Header("Parameters Time")]
+    [SerializeField] private float timeTranslate;
+
     void Start()
     {
         _rseAddScore.action += AddScore;
-        
     }
 
     private void OnDestroy()
@@ -28,14 +30,38 @@ public class S_ScoreManager : MonoBehaviour
 
     }
 
-    private void AddScore(int scoreAdd)
+    IEnumerator TimeScore(int scoreAdd)
     {
+        float startScore = _rsoScore.Score;
+
         float impatienceRatio = (float)_rsoCurrentImpatientTime.CurrentImpatientTime / _rsoImpatientTime.ImpatientTime;
 
         int pourcentageTime = Mathf.RoundToInt(_rsoCurrentImpatientTime.CurrentImpatientTime / _rsoImpatientTime.ImpatientTime * 100);
 
-        _rsoScore.Score += Mathf.RoundToInt(scoreAdd * GetMultiplicateurForTime(pourcentageTime, _ssoScoreMultiplicateur.TimeMultiplicateursList) * GetMultiplicateurForReputation(_rsoReputation.ReputationCurrency, _ssoScoreMultiplicateur.ReputationMultiplicateursList));
+        int score = Mathf.RoundToInt(scoreAdd * GetMultiplicateurForTime(pourcentageTime, _ssoScoreMultiplicateur.TimeMultiplicateursList) * GetMultiplicateurForReputation(_rsoReputation.ReputationCurrency, _ssoScoreMultiplicateur.ReputationMultiplicateursList));
+        float targetScore = startScore + score;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < timeTranslate)
+        {
+            elapsedTime += Time.deltaTime;
+
+            _rsoScore.Score = (int)Mathf.Lerp(startScore, targetScore, elapsedTime / timeTranslate);
+
+            _rseOnScoreChanged.RaiseEvent();
+
+            yield return null;
+        }
+
+        _rsoScore.Score = (int)targetScore;
+
         _rseOnScoreChanged.RaiseEvent();
+    }
+
+    private void AddScore(int scoreAdd)
+    {
+        StartCoroutine(TimeScore(scoreAdd));
     }
 
     public float GetMultiplicateurForTime(int pourcentageTime, List<TimeMultiplicateur> timesMultiplicateurList)
