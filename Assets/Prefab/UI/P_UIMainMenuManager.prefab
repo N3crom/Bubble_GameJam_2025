@@ -2631,10 +2631,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218a3f93abbf8784ca9f27a193d7384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textRank: []
-  textName: []
-  textWave: []
-  scroll: {fileID: 0}
+  textRank:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  textName:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  textScore:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
 --- !u!1 &8412023424675956419
 GameObject:
   m_ObjectHideFlags: 0

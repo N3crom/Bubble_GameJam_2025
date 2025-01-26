@@ -109,7 +109,7 @@ public class S_UIManager : MonoBehaviour
         panelGameOver.SetActive(true);
         textScore.text = score.Score.ToString();
 
-        Leaderboards.Score.UploadNewEntry("Paul", 50);
+        Leaderboards.Score.UploadNewEntry("Anonyme", score.Score);
         Leaderboards.Score.ResetPlayer();
 
         Time.timeScale = 0;
