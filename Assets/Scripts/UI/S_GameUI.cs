@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class S_GameUI : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class S_GameUI : MonoBehaviour
     [SerializeField] private RSE_OnTimerStart onTimerStart;
     [SerializeField] private RSE_OnTimerEnd onTimerEnd;
     [SerializeField] private RSE_StopTimer stopTimer;
+    [SerializeField] private RSE_OnListGenerationFinish onListGenerationFinish;
 
     [Header("References")]
     [SerializeField] private S_UIManager uiManager;
@@ -37,6 +39,9 @@ public class S_GameUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI textdescription;
 
+    [SerializeField] private Transform gridParent;
+    [SerializeField] private GameObject itemPrefab;
+
     private Coroutine coroutineText;
     private Coroutine coroutineTimer;
 
@@ -47,6 +52,8 @@ public class S_GameUI : MonoBehaviour
 
         onTimerStart.action += StartTimer;
         stopTimer.action += StopTimer;
+
+        onListGenerationFinish.action += InitialisationCarts;
     }
 
     private void OnDisable()
@@ -56,6 +63,8 @@ public class S_GameUI : MonoBehaviour
 
         onTimerStart.action -= StartTimer;
         stopTimer.action -= StopTimer;
+
+        onListGenerationFinish.action -= InitialisationCarts;
     }
 
     private void Start()
@@ -68,6 +77,8 @@ public class S_GameUI : MonoBehaviour
 
         sliderReputation.value = reputation.ReputationCurrency;
         textReputation.text = reputation.ReputationCurrency.ToString() + "%";
+
+        textdescription.text = "";
     }
 
     private IEnumerator TextDisplay(string text)
@@ -130,6 +141,29 @@ public class S_GameUI : MonoBehaviour
         if(coroutineTimer != null)
         {
             StopCoroutine(coroutineTimer);
+        }
+
+        textimpatientTime.text = "";
+        sliderimpatientTime.value = impatientTime.ImpatientTime;
+        sliderimpatientTime.maxValue = impatientTime.ImpatientTime;
+        textdescription.text = "";
+
+        textdescription.transform.parent.gameObject.SetActive(false);
+
+        for (int i = gridParent.childCount - 1; i >= 0; i--)
+        {
+            Destroy(gridParent.GetChild(i).gameObject);
+        }
+    }
+
+    private void InitialisationCarts(List<Item> listItems)
+    {
+        for (int i = 0; i < listItems.Count; i++)
+        {
+            GameObject newItem = Instantiate(itemPrefab, gridParent);
+
+            newItem.GetComponent<S_Carte>().dataValue = listItems[i].Id;
+            newItem.transform.GetChild(0).GetComponent<Image>().sprite = listItems[i].Sprite;
         }
     }
 

@@ -5,7 +5,6 @@ public class S_Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
 {
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    private Vector2 originalPosition;
     private Transform originalParent;
     private int originalSiblingIndex;
 
@@ -19,7 +18,6 @@ public class S_Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        originalPosition = rectTransform.anchoredPosition;
         originalParent = rectTransform.parent;
         originalSiblingIndex = rectTransform.GetSiblingIndex();
 
@@ -43,6 +41,10 @@ public class S_Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         {
             rectTransform.SetParent(originalParent);
             rectTransform.SetSiblingIndex(originalSiblingIndex);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 }

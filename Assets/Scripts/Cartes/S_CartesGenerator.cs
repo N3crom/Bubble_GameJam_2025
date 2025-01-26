@@ -8,6 +8,7 @@ public class S_CartesGenerator : MonoBehaviour
     [Header("References")]
     [SerializeField] RSO_ItemsListToDisplay _rsoItemsListToDisplay;
     [SerializeField] RSE_OnClientCreate _rseOnClientCreate;
+    [SerializeField] RSE_OnTimerStart _rseOnTimerStart;
     [SerializeField] RSE_OnListGenerationFinish _rseOnListGenerationFinish;
     [SerializeField] SSO_ItemsList _ssoItemsList;
     [SerializeField] RSO_NumberItemsDisplay _rsoNumberItemsDisplay;
@@ -18,6 +19,7 @@ public class S_CartesGenerator : MonoBehaviour
         _numberItems = _rsoNumberItemsDisplay.NumberItemsToDisplay;
 
         _rseOnClientCreate.action += GenerateCards;
+        _rseOnTimerStart.action += SpawnCards;
 
     }
 
@@ -26,6 +28,7 @@ public class S_CartesGenerator : MonoBehaviour
         _rsoNumberItemsDisplay.NumberItemsToDisplay = _numberItems;
 
         _rseOnClientCreate.action -= GenerateCards;
+        _rseOnTimerStart.action -= SpawnCards;
 
     }
     void GenerateCards(Customer currentCustomer)
@@ -44,8 +47,6 @@ public class S_CartesGenerator : MonoBehaviour
 
         int numberCards = 1;
 
-        ShuffleList(_ssoItemsList.ItemsList);
-
         foreach (var element in _ssoItemsList.ItemsList)
         {
             if (!_rsoItemsListToDisplay.ItemsToDisplay.Contains(element))
@@ -58,6 +59,11 @@ public class S_CartesGenerator : MonoBehaviour
             }
         }
 
+        ShuffleList(_rsoItemsListToDisplay.ItemsToDisplay);
+    }
+
+    void SpawnCards()
+    {
         _rseOnListGenerationFinish.RaiseEvent(_rsoItemsListToDisplay.ItemsToDisplay);
     }
 

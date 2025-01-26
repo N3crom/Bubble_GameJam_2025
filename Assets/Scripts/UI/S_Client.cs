@@ -60,17 +60,7 @@ public class S_Client : MonoBehaviour, IDropHandler
             {
                 int value = draggable.dataValue;
 
-                if (value == _customer.ItemWanted.Id)
-                {
-                    Debug.Log("Bonne valeur déposée !");
-                }
-                else
-                {
-                    Debug.Log("Mauvaise valeur déposée.");
-                }
-                //_rseOnItemGive.RaiseEvent(value);
-                _rseOnItemGive.RaiseEvent(_customer.ItemWanted);
-
+                _rseOnItemGive.RaiseEvent(value);
             }
         }
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class S_CustomerManager : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class S_CustomerManager : MonoBehaviour
     [SerializeField] RSE_OnCustomerStateChange _rseOnCustomerStateChange;
 
     Customer CurrentCustomer;
+
+    public int itemId;
 
     private void Awake()
     {
@@ -49,8 +52,6 @@ public class S_CustomerManager : MonoBehaviour
         _rseOnItemGive.action -= TcheckItemIdGive;
         _rseOnClientLeave.action -= CreateCustomer;
         _rseOnTimerEnd.action -= TimerEnd;
-
-
     }
 
 
@@ -67,11 +68,9 @@ public class S_CustomerManager : MonoBehaviour
             var customerState = (CustomerState)randomIndex;
             customer.CustomerState = customerState;
         }
-        else
-        {
-        }
 
         customer.ItemWanted = itemWanted;
+        itemId = itemWanted.Id;
         customer.SpritesDict = spritesDict;
 
         CurrentCustomer = customer;
@@ -80,9 +79,9 @@ public class S_CustomerManager : MonoBehaviour
         _rseOnClientCreate.RaiseEvent(customer);
     }
 
-    void TcheckItemIdGive(Item item)
+    void TcheckItemIdGive(int id)
     {
-        if(CurrentCustomer.ItemWanted.Id == item.Id)
+        if(CurrentCustomer.ItemWanted.Id == id)
         {
             _rseOnGoodArticleGive.RaiseEvent();
 
