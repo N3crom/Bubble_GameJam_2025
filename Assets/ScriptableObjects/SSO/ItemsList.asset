@@ -22,7 +22,7 @@ MonoBehaviour:
       it's for cleaning, the bubbles it makes are average. Please?
     - Hey do y'all have that thing that's for cleaning, looks like a small block,
       like an hygiene product, y'know? It makes average bubbles.
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: b2e3f398b83c7a645996246de19907b0, type: 3}
   - Id: 1
     Name: Soda
     Descriptions:
@@ -32,7 +32,7 @@ MonoBehaviour:
       the bubbles it makes are tiny. Please?
     - Hey do y'all have that thing that's for drinking, looks like a bottle, like
       a beverage, y'know? It makes tiny bubbles.
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: ae2c90d9b43767747927268197fe790b, type: 3}
   - Id: 2
     Name: Bubble gun
     Descriptions:
@@ -42,7 +42,7 @@ MonoBehaviour:
       playing, the bubbles it makes are average. Please?
     - Hey do y'all have that thing that's for playing, looks like a coloured plastic,
       like a toy, y'know? It makes average bubbles.
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 501f9dd3c14d39e4c82fce44fbab0f7a, type: 3}
   - Id: 3
     Name: Bubble wrap
     Descriptions:
@@ -52,7 +52,7 @@ MonoBehaviour:
       it has tiny aligned bubbles. Please?
     - Hey do y'all have that thing that's for wraping, looks like a roll, like a
       tool, y'know? It has tiny aligned bubbles.
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: b5fe1ee16006a2c4b90f27127e73aeb4, type: 3}
   - Id: 4
     Name: Chewing gum
     Descriptions:
@@ -62,7 +62,7 @@ MonoBehaviour:
       concentration, the bubbles it makes are average. Please?
     - Hey do y'all have that thing that's for improving concentration, looks like
       a tiny chip, like food, y'know? It makes average bubbles.
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 666351b779c36434eb4bfa9ef2670f90, type: 3}
   - Id: 5
     Name: Bubble level
     Descriptions:
@@ -72,7 +72,7 @@ MonoBehaviour:
       the bubbles it has are tiny. Please?
     - Hey do y'all have that thing that's for measuring, looks like a thick ruler,
       like a tool, y'know? It has tiny bubbles.
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: f3469fb3c523cdd4796903f82a4355aa, type: 3}
   - Id: 6
     Name: Jacuzzi
     Descriptions:
@@ -86,13 +86,13 @@ MonoBehaviour:
   - Id: 7
     Name: Bubble ball
     Descriptions:
-    - Hello, I'm looking for a toy, It looks like a big coat, that is a huge bubbles
+    - Hello, I'm looking for a toy, It looks like a big coat, that is a big bubble
       and it is for bouncing. Do you have this for me please?
     - Hello, would you have something like a big coat, it's a toy, it's for bouncing,
-      this is a huge bubble. Please?
+      this is a big bubble. Please?
     - Hey do y'all have that thing that's for bouncing, looks like a big coat, like
-      a toy, y'know? Its a huge bubbles.
-    Sprite: {fileID: 0}
+      a toy, y'know? Its a big bubble.
+    Sprite: {fileID: 21300000, guid: 92792877dd1d9004286800f04036acb0, type: 3}
   - Id: 8
     Name: Bubble tea
     Descriptions:
@@ -102,17 +102,17 @@ MonoBehaviour:
       the many bubbles it has are average. Please?
     - Hey do y'all have that thing that's for drinking, looks like a cup, like a
       beverage, y'know? It has many  average bubbles.
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 4ad49bc07e01a08408ce5d555d201156, type: 3}
   - Id: 9
     Name: Beer
     Descriptions:
-    - Hello, I'm looking for a beverage, It looks like a can, that makes tiny bubbles
+    - Hello, I'm looking for a beverage, It looks like a pint, that makes tiny bubbles
       and it is for drinking. Do you have this for me please?
-    - Hello, would you have something like a can, it's a beverage, it's for drinking,
+    - Hello, would you have something like a pint, it's a beverage, it's for drinking,
       the bubbles it makes are tiny. Please?
-    - Hey do y'all have that thing that's for drinking, looks like a can, like a
+    - Hey do y'all have that thing that's for drinking, looks like a pint, like a
       beverage, y'know? It makes tiny bubbles.
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: b95a0e1c6c8366649ae758d2d7cca340, type: 3}
   - Id: 10
     Name: Sparkling water
     Descriptions:
@@ -142,7 +142,7 @@ MonoBehaviour:
       cleaning, the bubbles it makes are average. Please?
     - Hey do y'all have that thing that's for cleaning, looks like a bag, like an
       hygiene product, y'know? It makes average bubbles.
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: dc51b409953221442bc6d8a6b8fc35d1, type: 3}
   - Id: 13
     Name: Bubble nebula
     Descriptions:
@@ -153,7 +153,7 @@ MonoBehaviour:
       for star making, the bubble it has is lightyears large. Please?
     - Hey do y'all have that thing that's for star making, looks like a big cloud,
       like an unusual thing, y'know? It has a lightyears large bubble.
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: eb0f2c4b661c15f458c7dace1a4dc0ea, type: 3}
   - Id: 14
     Name: Lava lamp
     Descriptions:
@@ -163,7 +163,7 @@ MonoBehaviour:
       it's for shining, the bubbles it makes are average. Please?
     - Hey do y'all have that thing that's for shining, looks like a bright cylinder,
       like a decoration, y'know? It makes average bubbles.
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 5da93bd64885c3049ac04ebab6f06d70, type: 3}
   - Id: 15
     Name: Bubble tube
     Descriptions:
@@ -173,7 +173,7 @@ MonoBehaviour:
       the bubbles it makes are average. Please?
     - Hey do y'all have that thing that's for playing, looks like a cylinder, like
       a toy, y'know? It makes average bubbles.
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: fbad73fb458dd7f4f8f57496bcd10d20, type: 3}
   - Id: 16
     Name: Spatial bubble
     Descriptions:
@@ -184,7 +184,7 @@ MonoBehaviour:
       unusual thing, it's for traveling, the bubble it has is unfathomable. Please?
     - Hey do y'all have that thing that's for traveling, looks like a hole in space-time
       continuum, like an unusual thing, y'know? It has an unfathomable bubble.
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: d0c2b1d039e4e9d49b66c77cfb1a1097, type: 3}
   - Id: 17
     Name: Bubble child
     Descriptions:
@@ -194,7 +194,7 @@ MonoBehaviour:
       it's for adopting, the bubble it has is big. Please?
     - Hey do y'all have that thing that's for adopting, looks like a child in a bubble,
       like an unusual thing, y'know? It has a big bubble.
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: e23b6cbfcfb01ed4c8432c2035767ab3, type: 3}
   - Id: 18
     Name: Molten lava
     Descriptions:
@@ -214,4 +214,4 @@ MonoBehaviour:
       for curing, the bubbles it makes are tiny. Please?
     - Hey do y'all have that thing that's for curing, looks like a white round pill,
       like medication, y'know? It makes tiny bubbles.
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: ef7ee700731b627448e234fd055a3971, type: 3}
