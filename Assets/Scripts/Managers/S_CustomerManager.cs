@@ -43,7 +43,8 @@ public class S_CustomerManager : MonoBehaviour
         _rseOnClientLeave.action += CreateCustomer;
         _rseOnTimerEnd.action += TimerEnd;
 
-        CreateCustomer();
+        StartCoroutine(SpawnDelay());
+
     }
 
     private void OnDestroy()
