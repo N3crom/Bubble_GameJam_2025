@@ -208,10 +208,10 @@ MonoBehaviour:
   - Id: 19
     Name: Effervescent drug
     Descriptions:
-    - Hello, I'm looking for medication, It looks like a white round pill, that makes
-      tiny bubbles and it is for curing. Do you have this for me please?
-    - Hello, would you have something like a white round pill, it's medication, it's
-      for curing, the bubbles it makes are tiny. Please?
-    - Hey do y'all have that thing that's for curing, looks like a white round pill,
-      like medication, y'know? It makes tiny bubbles.
+    - Hello, I'm looking for medication, It looks like a coloured round pill, that
+      makes tiny bubbles and it is for curing. Do you have this for me please?
+    - Hello, would you have something like a coloured round pill, it's medication,
+      it's for curing, the bubbles it makes are tiny. Please?
+    - Hey do y'all have that thing that's for curing, looks like a coloured round
+      pill, like medication, y'know? It makes tiny bubbles.
     Sprite: {fileID: 21300000, guid: ef7ee700731b627448e234fd055a3971, type: 3}
