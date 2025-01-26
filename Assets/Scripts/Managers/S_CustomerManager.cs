@@ -43,7 +43,7 @@ public class S_CustomerManager : MonoBehaviour
         _rseOnClientLeave.action += CreateCustomer;
         _rseOnTimerEnd.action += TimerEnd;
 
-        StartCoroutine(SpawnDelay());
+        StartCoroutine(FirstSpawnStart());
 
     }
 
@@ -125,5 +125,12 @@ public class S_CustomerManager : MonoBehaviour
         yield return null;
     }
 
+
+    IEnumerator FirstSpawnStart()
+    {
+        yield return new WaitForEndOfFrame();
+
+        CreateCustomer();
+    }
 
 }
