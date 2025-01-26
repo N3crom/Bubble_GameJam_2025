@@ -58,7 +58,6 @@ public class S_ReputationManager : MonoBehaviour
             _rseOnReputationChanged.RaiseEvent();
             _rseOnGameLost.RaiseEvent();
             //_audioSource.Play();
-            Debug.Log("vv");
             _audioSource.PlayOneShot(_audioSource.clip);
         }
     }

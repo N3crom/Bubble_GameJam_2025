@@ -31,6 +31,11 @@ public class S_CustomerManager : MonoBehaviour
     [SerializeField] RSE_OnCustomerShake _rseOnCustomerShake;
     [SerializeField] RSE_OnClientGoToRight _rseOnClientGoToRight;
     [SerializeField] RSO_ImpatientTime _rsoImpatientTime;
+    [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioClip _audioClipWrongCards;
+    [SerializeField] AudioClip _audioClipGoodCards;
+    [SerializeField] AudioClip _audioClipBellRing;
+
 
     Customer CurrentCustomer;
 
@@ -89,12 +94,21 @@ public class S_CustomerManager : MonoBehaviour
 
         _rsoCurrentCustomers.CurrentCustomer = customer;
         _rseOnClientCreate.RaiseEvent(customer);
+
+        _audioSource.volume = 0.1f;
+        _audioSource.PlayOneShot(_audioClipBellRing);
+        //_audioSource.volume = 1f;
+
     }
 
     void TcheckItemIdGive(int id)
     {
         if(CurrentCustomer.ItemWanted.Id == id)
         {
+            _audioSource.volume = 1f;
+
+            _audioSource.PlayOneShot(_audioClipGoodCards);
+
             _rseOnGoodArticleGive.RaiseEvent();
 
             _rseAddReputation.RaiseEvent(_rsoReputationGain.ReputationGain);
@@ -108,6 +122,10 @@ public class S_CustomerManager : MonoBehaviour
         }
         else
         {
+            _audioSource.volume = 0.5f;
+
+            _audioSource.PlayOneShot(_audioClipWrongCards);
+
             _rseOnBadArticleGive.RaiseEvent();
 
             _rseOnRemoveReputation.RaiseEvent(_rsoReputationLost.ReputationLost);
