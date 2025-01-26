@@ -78,11 +78,15 @@ public class S_UIManager : MonoBehaviour
 
         int currentSceneIndex = currentScene.buildIndex;
 
+        Time.timeScale = 1;
+
         SceneManager.LoadScene(currentSceneIndex);
     }
 
     private void Menu()
     {
+        Time.timeScale = 1;
+
         SceneManager.LoadScene("Scene_MainMenu");
     }
 
