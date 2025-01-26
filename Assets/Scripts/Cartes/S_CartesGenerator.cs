@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class S_CartesGenerator : MonoBehaviour
 {
+    [Header("Parameter")]
+    [SerializeField] float _addItemsAfterPourcentageOfStartImpateintTime;
+    [SerializeField] int _maxItemsToDisplay;
+
     [Header("References")]
     [SerializeField] RSO_ItemsListToDisplay _rsoItemsListToDisplay;
     [SerializeField] RSE_OnClientCreate _rseOnClientCreate;
@@ -12,12 +16,15 @@ public class S_CartesGenerator : MonoBehaviour
     [SerializeField] RSE_OnListGenerationFinish _rseOnListGenerationFinish;
     [SerializeField] SSO_ItemsList _ssoItemsList;
     [SerializeField] RSO_NumberItemsDisplay _rsoNumberItemsDisplay;
+    [SerializeField] RSO_ImpatientTime _rsoImpatientTime;
 
-    int _numberItems;
+    int _numberStartItems;
+    float _startImpatientTime;
     private void Start()
     {
-        _numberItems = _rsoNumberItemsDisplay.NumberItemsToDisplay;
-
+        _numberStartItems = _rsoNumberItemsDisplay.NumberItemsToDisplay;
+        _startImpatientTime = _rsoImpatientTime.ImpatientTime;
+        //_rsoNumberItemsDisplay.NumberItemsToDisplay = 5;
         _rseOnClientCreate.action += GenerateCards;
         _rseOnTimerStart.action += SpawnCards;
 
@@ -25,7 +32,7 @@ public class S_CartesGenerator : MonoBehaviour
 
     private void OnDestroy()
     {
-        _rsoNumberItemsDisplay.NumberItemsToDisplay = _numberItems;
+        _rsoNumberItemsDisplay.NumberItemsToDisplay = _numberStartItems;
 
         _rseOnClientCreate.action -= GenerateCards;
         _rseOnTimerStart.action -= SpawnCards;
@@ -36,7 +43,10 @@ public class S_CartesGenerator : MonoBehaviour
 
         _rsoItemsListToDisplay.ItemsToDisplay.Clear();
 
-
+        float currentTimeMax = _rsoImpatientTime.ImpatientTime;
+        _rsoNumberItemsDisplay.NumberItemsToDisplay = _numberStartItems + _maxItemsToDisplay - Mathf.CeilToInt(currentTimeMax / _startImpatientTime  * 100 * _addItemsAfterPourcentageOfStartImpateintTime);
+        _rsoNumberItemsDisplay.NumberItemsToDisplay = Mathf.Clamp(_rsoNumberItemsDisplay.NumberItemsToDisplay, _numberStartItems, _maxItemsToDisplay);
+        //Debug.Log(Mathf.RoundToInt(_startImpatientTime / currentTimeMax * 100 * _addItemsAfterPourcentageOfStartImpateintTime));
         if (_ssoItemsList.ItemsList.Count < _rsoNumberItemsDisplay.NumberItemsToDisplay)
         {
             Debug.LogError("La liste source ne contient pas assez d'éléments pour en sélectionner ");
@@ -65,6 +75,8 @@ public class S_CartesGenerator : MonoBehaviour
     void SpawnCards()
     {
         _rseOnListGenerationFinish.RaiseEvent(_rsoItemsListToDisplay.ItemsToDisplay);
+
+        _rsoNumberItemsDisplay.NumberItemsToDisplay = _numberStartItems;
     }
 
 

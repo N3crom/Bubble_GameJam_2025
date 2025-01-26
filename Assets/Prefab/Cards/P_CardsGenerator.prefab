@@ -44,9 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef54a85cf8c80f042aca08861cb81f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _addItemsAfterPourcentageOfStartImpateintTime: 0.1
+  _maxItemsToDisplay: 10
   _rsoItemsListToDisplay: {fileID: 11400000, guid: 2c9ff5586e139434ea6bc7df6457a4ac, type: 2}
   _rseOnClientCreate: {fileID: 11400000, guid: 7e0bd69783cd9a4448f1460c66e3483c, type: 2}
   _rseOnTimerStart: {fileID: 11400000, guid: ef7c21bc8cfaa8841983382d0898ee7b, type: 2}
   _rseOnListGenerationFinish: {fileID: 11400000, guid: dccbd5c40d0e26947a43d0953b209a7c, type: 2}
   _ssoItemsList: {fileID: 11400000, guid: f2b7c6736c5292b479fe6311fbfd3973, type: 2}
   _rsoNumberItemsDisplay: {fileID: 11400000, guid: a069779c3b342f14fa060bc51b86499a, type: 2}
+  _rsoImpatientTime: {fileID: 11400000, guid: a1941a1c28d8b0248a38694806fc7687, type: 2}
