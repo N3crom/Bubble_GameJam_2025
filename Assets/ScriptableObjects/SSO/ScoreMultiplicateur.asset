@@ -15,7 +15,7 @@ MonoBehaviour:
   TimeMultiplicateursList:
   - PourcentageTimeMinInclusive: 0
     PourcentageTimeMaxExclusive: 33
-    Multiplicateur: 0.5
+    Multiplicateur: 0.75
   - PourcentageTimeMinInclusive: 33
     PourcentageTimeMaxExclusive: 66
     Multiplicateur: 1
@@ -25,7 +25,7 @@ MonoBehaviour:
   ReputationMultiplicateursList:
   - PourcentageReputationMinInclusive: 0
     PourcentageReputationMaxExclusive: 25
-    Multiplicateur: 0.5
+    Multiplicateur: 0.75
   - PourcentageReputationMinInclusive: 25
     PourcentageReputationMaxExclusive: 50
     Multiplicateur: 1
