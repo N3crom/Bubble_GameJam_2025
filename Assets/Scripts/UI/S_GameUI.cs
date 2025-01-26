@@ -27,6 +27,8 @@ public class S_GameUI : MonoBehaviour
     [SerializeField] private RSE_OnBadArticleGive onBadArticleGive;
     [SerializeField] private RSE_OnGoodArticleGive onGoodArticleGive;
     [SerializeField] private RSE_OnClientLeave onClientLeave;
+    [SerializeField] RSE_OnBadArticleGive _rseOnBadArticleGive;
+
 
     [Header("References")]
     [SerializeField] private S_UIManager uiManager;
@@ -51,6 +53,10 @@ public class S_GameUI : MonoBehaviour
 
     [SerializeField] private int timeTicking;
 
+    [SerializeField] float _shakeDuration;
+    [SerializeField] float _shakeMagnitude;
+
+    Vector3 _originalSliderPosition;
     private Coroutine coroutineText;
     private Coroutine coroutineTimer;
 
@@ -68,6 +74,11 @@ public class S_GameUI : MonoBehaviour
         onBadArticleGive.action += BubbleFail;
 
         onClientLeave.action += RemoveBubble;
+
+        _rseOnBadArticleGive.action += ShakeSlider;
+
+        _originalSliderPosition = sliderReputation.gameObject.transform.localPosition;
+
     }
 
     private void OnDisable()
@@ -84,6 +95,9 @@ public class S_GameUI : MonoBehaviour
         onBadArticleGive.action -= BubbleFail;
 
         onClientLeave.action -= RemoveBubble;
+
+        _rseOnBadArticleGive.action -= ShakeSlider;
+
     }
 
     private void Start()
@@ -203,6 +217,28 @@ public class S_GameUI : MonoBehaviour
     {
         sliderReputation.value = reputation.ReputationCurrency;
         textReputation.text = reputation.ReputationCurrency.ToString() + "%";
+    }
+
+    void ShakeSlider()
+    {
+        StartCoroutine(StartShake(_shakeDuration, _shakeMagnitude));
+    }
+
+    IEnumerator StartShake(float duration, float magnitude)
+    {
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            //float y = Random.Range(-1f, 1f) * magnitude;
+
+            sliderReputation.gameObject.transform.localPosition = new Vector3(_originalSliderPosition.x + x, _originalSliderPosition.y, _originalSliderPosition.z);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        sliderReputation.gameObject.transform.localPosition = _originalSliderPosition;
     }
 
     private void RemoveBubble()

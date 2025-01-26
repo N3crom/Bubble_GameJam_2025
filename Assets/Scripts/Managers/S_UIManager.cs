@@ -20,6 +20,7 @@ public class S_UIManager : MonoBehaviour
 
     [Header("RSO")]
     [SerializeField] private RSO_Score score;
+    [SerializeField] private RSO_PlayerName playerName;
 
     [Header("References")]
     [SerializeField] private GameObject panelPause;
@@ -107,9 +108,16 @@ public class S_UIManager : MonoBehaviour
     private void GameOver()
     {
         panelGameOver.SetActive(true);
-        textScore.text = score.Score.ToString();
+        textScore.text = "Score: " + score.Score.ToString();
 
-        Leaderboards.Score.UploadNewEntry("Paul", 50);
+        string textName = "Anonyme";
+
+        if(playerName.PlayerName != null)
+        {
+            textName = playerName.PlayerName;
+        }
+
+        Leaderboards.Score.UploadNewEntry(textName, score.Score);
         Leaderboards.Score.ResetPlayer();
 
         Time.timeScale = 0;

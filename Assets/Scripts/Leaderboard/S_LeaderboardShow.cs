@@ -8,9 +8,7 @@ public class S_LeaderboardShow : MonoBehaviour
 {
     [SerializeField] private List<TextMeshProUGUI> textRank;
     [SerializeField] private List<TextMeshProUGUI> textName;
-    [SerializeField] private List<TextMeshProUGUI> textWave;
-
-    public GameObject scroll;
+    [SerializeField] private List<TextMeshProUGUI> textScore;
 
     private void Start()
     {
@@ -23,41 +21,22 @@ public class S_LeaderboardShow : MonoBehaviour
         {
             int value = 1;
 
-            foreach (var t in textRank)
+            for (int i = 0; i < 10; i++)
             {
-                t.text = value.ToString() + ".";
+                textRank[i].text = value.ToString();
+                textName[i].text = "EMPTY";
+                textScore[i].text = "0";
+
                 value++;
             }
 
-            foreach (var t in textName)
-            {
-                t.text = "EMPTY";
-            }
-
-            foreach (var t in textWave)
-            {
-                t.text = "0";
-            }
-
-            Debug.Log("t");
-
             int loopLength = (entries.Length < textName.Count) ? entries.Length : textName.Count;
+
             for (int i = 0; i < loopLength; i++)
             {
-                bool isMine = entries[i].IsMine();
-
-                if(isMine)
-                {
-                    textRank[i].color = Color.green;
-                    textName[i].color = Color.green;
-                    textWave[i].color = Color.green;
-                }
-
-                textRank[i].text = $"{entries[i].Rank}" + ".";
+                textRank[i].text = $"{entries[i].Rank}";
                 textName[i].text = $"{entries[i].Username}";
-                textWave[i].text = $"{entries[i].Score}";
-
-                Debug.Log($"{entries[i].Rank} {entries[i].Username} {entries[i].Score}");
+                textScore[i].text = $"{entries[i].Score}";
             }
         });
     }
