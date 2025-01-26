@@ -90,8 +90,6 @@ public class S_Client : MonoBehaviour, IDropHandler
             }
 
             yield return null;
-
-
         }
 
         //_rectTransform.localScale = _endScale;

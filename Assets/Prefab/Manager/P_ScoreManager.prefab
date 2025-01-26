@@ -47,3 +47,6 @@ MonoBehaviour:
   _rsoScore: {fileID: 11400000, guid: ab15efd30b0633541a27ca3f9825155b, type: 2}
   _rseAddScore: {fileID: 11400000, guid: 6c577d56fef2de64fb63986e18cb2a5f, type: 2}
   _rseOnScoreChanged: {fileID: 11400000, guid: 74bb29d7a267b9548999d8f11a0f435e, type: 2}
+  _rsoImpatientTime: {fileID: 11400000, guid: a1941a1c28d8b0248a38694806fc7687, type: 2}
+  _rsoReputation: {fileID: 11400000, guid: 155cf26875d15d74fa3d4d9c3353811f, type: 2}
+  _rsoCurrentImpatientTime: {fileID: 11400000, guid: f1e9836351464404eaa07f1bb9883e60, type: 2}
