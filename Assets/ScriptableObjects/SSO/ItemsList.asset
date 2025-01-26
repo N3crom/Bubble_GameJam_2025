@@ -82,7 +82,7 @@ MonoBehaviour:
       relaxing, the bubbles it makes are big. Please?
     - Hey do y'all have that thing that's for relaxing, looks like a big cup, like
       a luxury thing, y'know? It makes big bubbles.
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 931e39156420fb947888016d427a3f75, type: 3}
   - Id: 7
     Name: Bubble ball
     Descriptions:
