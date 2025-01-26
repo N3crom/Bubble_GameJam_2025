@@ -1,8 +1,12 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class S_MainMenuUI : MonoBehaviour
 {
+    [Header("RSO")]
+    [SerializeField] private RSO_PlayerName playerName;
+
     [Header("RSE")]
     [SerializeField] private RSE_CallStart callStart;
     [SerializeField] private RSE_CallCredits callCredits;
@@ -10,6 +14,7 @@ public class S_MainMenuUI : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject panelCredits;
+    [SerializeField] private TMP_InputField inputFieldName;
 
     private void OnEnable()
     {
@@ -23,6 +28,11 @@ public class S_MainMenuUI : MonoBehaviour
         callStart.action -= StartGame;
         callCredits.action -= Credits;
         callQuit.action -= Quit;
+    }
+
+    private void Start()
+    {
+        inputFieldName.text = playerName.PlayerName;
     }
 
     private void StartGame()

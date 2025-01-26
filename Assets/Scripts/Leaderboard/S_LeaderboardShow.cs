@@ -6,9 +6,9 @@ using TMPro;
 
 public class S_LeaderboardShow : MonoBehaviour
 {
-    [SerializeField] private List<string> textRank;
-    [SerializeField] private List<string> textName;
-    [SerializeField] private List<string> textScore;
+    [SerializeField] private List<TextMeshProUGUI> textRank;
+    [SerializeField] private List<TextMeshProUGUI> textName;
+    [SerializeField] private List<TextMeshProUGUI> textScore;
 
     private void Start()
     {
@@ -23,9 +23,9 @@ public class S_LeaderboardShow : MonoBehaviour
 
             for (int i = 0; i < 10; i++)
             {
-                textRank[i] = value.ToString();
-                textName[i] = "EMPTY";
-                textScore[i] = "0";
+                textRank[i].text = value.ToString();
+                textName[i].text = "EMPTY";
+                textScore[i].text = "0";
 
                 value++;
             }
@@ -34,22 +34,9 @@ public class S_LeaderboardShow : MonoBehaviour
 
             for (int i = 0; i < loopLength; i++)
             {
-                textRank[i] = $"{entries[i].Rank}";
-                textName[i] = $"{entries[i].Username}";
-                textScore[i] = $"{entries[i].Score}";
-
-                /*bool isMine = entries[i].IsMine();
-
-                if(isMine)
-                {
-                    textRank[i].color = Color.green;
-                    textName[i].color = Color.green;
-                    textScore[i].color = Color.green;
-                }
-
-                textRank[i].text = $"{entries[i].Rank}" + ".";
+                textRank[i].text = $"{entries[i].Rank}";
                 textName[i].text = $"{entries[i].Username}";
-                textScore[i].text = $"{entries[i].Score}";*/
+                textScore[i].text = $"{entries[i].Score}";
             }
         });
     }
