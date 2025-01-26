@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde93fc4216eaff4680ed6fb71ab5647, type: 3}
   m_Name: NumberItemsDisplay
   m_EditorClassIdentifier: 
-  NumberItemsToDisplay: 8
+  NumberItemsToDisplay: 5
