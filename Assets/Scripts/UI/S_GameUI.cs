@@ -16,8 +16,6 @@ public class S_GameUI : MonoBehaviour
 
     [SerializeField] private RSO_Reputation reputation;
 
-    [SerializeField] private RSO_TalkTime talkTime;
-
     [Header("RSE")]
     [SerializeField] private RSE_CallPause callPause;
     [SerializeField] private RSE_OnScoreChanged onScoreChanged;
@@ -110,7 +108,7 @@ public class S_GameUI : MonoBehaviour
         {
             textdescription.text += text[i];
 
-            yield return new WaitForSeconds(talkTime.TalkTime);
+            yield return new WaitForSeconds((impatientTime.ImpatientTime / 2) / text.Length);
         }
     }
 
