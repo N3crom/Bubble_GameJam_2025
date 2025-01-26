@@ -8,6 +8,8 @@ public class S_CustomerManager : MonoBehaviour
     [SerializeField] float _shakeDuration;
     [SerializeField] float _shakeMagnitude;
     [SerializeField] float _timeLeave;
+    [SerializeField] float _multiplicateurTimePurcentage;
+    [SerializeField] float _minimumTimeImpatientValue;
 
     [Header("Reference")]
     [SerializeField] RSO_CurrentCustomers _rsoCurrentCustomers;
@@ -28,14 +30,17 @@ public class S_CustomerManager : MonoBehaviour
     [SerializeField] RSE_OnCustomerStateChange _rseOnCustomerStateChange;
     [SerializeField] RSE_OnCustomerShake _rseOnCustomerShake;
     [SerializeField] RSE_OnClientGoToRight _rseOnClientGoToRight;
+    [SerializeField] RSO_ImpatientTime _rsoImpatientTime;
 
     Customer CurrentCustomer;
 
     public int itemId;
 
+    float _initialImpactientTimeValue;
+
     private void Awake()
     {
-       
+        _initialImpactientTimeValue = _rsoImpatientTime.ImpatientTime;
     }
     // Start is called before the first frame update
     void Start()
@@ -57,6 +62,8 @@ public class S_CustomerManager : MonoBehaviour
         _ssoSpritesCustomersList.ClearDictionnary();
         _rseOnItemGive.action -= TcheckItemIdGive;
         _rseOnTimerEnd.action -= TimerEnd;
+
+        _rsoImpatientTime.ImpatientTime = _initialImpactientTimeValue;
     }
 
 
@@ -135,7 +142,11 @@ public class S_CustomerManager : MonoBehaviour
         _rseOnClientLeave.RaiseEvent();
 
         yield return new WaitForSeconds(_timeLeave/2);
+        _rsoImpatientTime.ImpatientTime -= _rsoImpatientTime.ImpatientTime * _multiplicateurTimePurcentage;
+        //Debug.Log($"Value before clamp: {_rsoImpatientTime.ImpatientTime}");
 
+        _rsoImpatientTime.ImpatientTime = Mathf.Clamp(_rsoImpatientTime.ImpatientTime, _minimumTimeImpatientValue, 10);
+        //Debug.Log($" Value after clamp: {_rsoImpatientTime.ImpatientTime}");
         CreateCustomer();
 
         yield return null;
