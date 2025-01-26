@@ -9,6 +9,9 @@ public class S_ScoreManager : MonoBehaviour
     [SerializeField] RSO_Score _rsoScore;
     [SerializeField] RSE_AddScore _rseAddScore;
     [SerializeField] RSE_OnScoreChanged _rseOnScoreChanged;
+    [SerializeField] RSO_ImpatientTime _rsoImpatientTime;
+    [SerializeField] RSO_Reputation _rsoReputation;
+    [SerializeField] RSO_CurrentImpatientTime _rsoCurrentImpatientTime;
 
     void Start()
     {
@@ -25,7 +28,9 @@ public class S_ScoreManager : MonoBehaviour
 
     private void AddScore(int scoreAdd)
     {
-        _rsoScore.Score += scoreAdd;
+        float impatienceRatio = (float)_rsoCurrentImpatientTime.CurrentImpatientTime / _rsoImpatientTime.ImpatientTime;
+
+        _rsoScore.Score += (int)(scoreAdd + 5f * impatienceRatio);
         _rseOnScoreChanged.RaiseEvent();
     }
 

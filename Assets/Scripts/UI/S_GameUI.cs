@@ -12,6 +12,7 @@ public class S_GameUI : MonoBehaviour
     [SerializeField] private RSO_Score score;
 
     [SerializeField] private RSO_ImpatientTime impatientTime;
+    [SerializeField] private RSO_CurrentImpatientTime currentImpatientTime;
 
     [SerializeField] private RSO_Reputation reputation;
 
@@ -96,6 +97,7 @@ public class S_GameUI : MonoBehaviour
     private IEnumerator SliderTime()
     {
         sliderimpatientTime.maxValue = impatientTime.ImpatientTime;
+        currentImpatientTime.CurrentImpatientTime = impatientTime.ImpatientTime;
 
         float elapsedTime = 0f;
 
@@ -106,10 +108,13 @@ public class S_GameUI : MonoBehaviour
             textimpatientTime.text = Mathf.Lerp(impatientTime.ImpatientTime, 0f, elapsedTime / impatientTime.ImpatientTime).ToString("F2") + "s";
             sliderimpatientTime.value = Mathf.Lerp(impatientTime.ImpatientTime, 0f, elapsedTime / impatientTime.ImpatientTime);
 
+            currentImpatientTime.CurrentImpatientTime = Mathf.Lerp(impatientTime.ImpatientTime, 0f, elapsedTime / impatientTime.ImpatientTime);
+
             yield return null;
         }
 
         sliderimpatientTime.value = 0;
+        currentImpatientTime.CurrentImpatientTime = 0;
 
         onTimerEnd.RaiseEvent();
 
