@@ -7,6 +7,7 @@ public class S_CustomerManager : MonoBehaviour
     [Header("Parameter")]
     [SerializeField] float _shakeDuration;
     [SerializeField] float _shakeMagnitude;
+    [SerializeField] float _timeLeave;
 
     [Header("Reference")]
     [SerializeField] RSO_CurrentCustomers _rsoCurrentCustomers;
@@ -26,6 +27,7 @@ public class S_CustomerManager : MonoBehaviour
     [SerializeField] RSE_StopTimer _rseStopTimer;
     [SerializeField] RSE_OnCustomerStateChange _rseOnCustomerStateChange;
     [SerializeField] RSE_OnCustomerShake _rseOnCustomerShake;
+    [SerializeField] RSE_OnClientGoToRight _rseOnClientGoToRight;
 
     Customer CurrentCustomer;
 
@@ -71,7 +73,7 @@ public class S_CustomerManager : MonoBehaviour
             var customerState = (CustomerState)randomIndex;
             customer.CustomerState = customerState;
         }
-
+        customer.CustomerState = CustomerState.Neutral;
         customer.ItemWanted = itemWanted;
         itemId = itemWanted.Id;
         customer.SpritesDict = spritesDict;
@@ -126,9 +128,13 @@ public class S_CustomerManager : MonoBehaviour
 
     IEnumerator SpawnDelay()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
+
+        _rseOnClientGoToRight.RaiseEvent(_timeLeave);
 
         _rseOnClientLeave.RaiseEvent();
+
+        yield return new WaitForSeconds(_timeLeave/2);
 
         CreateCustomer();
 

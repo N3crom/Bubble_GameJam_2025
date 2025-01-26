@@ -10,6 +10,7 @@ public class S_Client : MonoBehaviour, IDropHandler
     [SerializeField] float _timerToCustomerAparition;
     [SerializeField] Vector3 _startScale;
     [SerializeField] Vector3 _endScale;
+    [SerializeField] float _speedToGoRight;
 
     [Header("Reference")]
     [SerializeField] Image _imageClient;
@@ -21,6 +22,8 @@ public class S_Client : MonoBehaviour, IDropHandler
     [SerializeField] RSE_OnClientCreate _rseOnClientCreate;
     [SerializeField] RSE_OnCustomerStateChange _rseOnCustomerStateChange;
     [SerializeField] RSE_OnCustomerShake _rseOnCustomerShake;
+    [SerializeField] RSE_OnClientGoToRight _rseOnClientGoToRight;
+
 
     private Vector3 _originalPosition;
     private Customer _customer;
@@ -37,6 +40,7 @@ public class S_Client : MonoBehaviour, IDropHandler
         _originalPosition = transform.localPosition;
 
         _rseOnCustomerShake.action += Shake;
+        _rseOnClientGoToRight.action += StartCoroutineGoRight;
     }
 
     private void OnDestroy()
@@ -45,6 +49,8 @@ public class S_Client : MonoBehaviour, IDropHandler
         _rseOnClientCreate.action -= Initialize;
 
         _rseOnCustomerShake.action -= Shake;
+        _rseOnClientGoToRight.action -= StartCoroutineGoRight;
+
     }
     // Update is called once per frame
     void Update()
@@ -148,5 +154,30 @@ public class S_Client : MonoBehaviour, IDropHandler
     public void GoToOriginalPosition()
     {
         transform.localPosition = _originalPosition;
+    }
+
+
+    private void StartCoroutineGoRight(float duration)
+    {
+        StartCoroutine(ClientGoTORight(duration));
+
+    }
+
+    IEnumerator ClientGoTORight(float duration)
+    {
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            float x = _speedToGoRight;
+            
+
+            transform.localPosition = new Vector3(transform.localPosition.x + x, transform.localPosition.y, transform.localPosition.z);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        //yield return null;
+        GoToOriginalPosition();
     }
 }

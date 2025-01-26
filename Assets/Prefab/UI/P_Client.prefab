@@ -92,6 +92,7 @@ MonoBehaviour:
   _timerToCustomerAparition: 1
   _startScale: {x: 0.6, y: 0.6, z: 0.6}
   _endScale: {x: 1, y: 1, z: 1}
+  _speedToGoRight: 4
   _imageClient: {fileID: 6834266759485588135}
   _rectTransform: {fileID: 6078744107171783503}
   _rseOnTimerStart: {fileID: 11400000, guid: ef7c21bc8cfaa8841983382d0898ee7b, type: 2}
@@ -101,6 +102,7 @@ MonoBehaviour:
   _rseOnClientCreate: {fileID: 11400000, guid: 7e0bd69783cd9a4448f1460c66e3483c, type: 2}
   _rseOnCustomerStateChange: {fileID: 11400000, guid: cdea1d28ba509c0419941471beb0ac63, type: 2}
   _rseOnCustomerShake: {fileID: 11400000, guid: bf1146c5e6e83a74992a9b2f08f0f4aa, type: 2}
+  _rseOnClientGoToRight: {fileID: 11400000, guid: 3dc5ecb84738fae49bbf87d7a86d0b98, type: 2}
 --- !u!61 &8825551471022365897
 BoxCollider2D:
   m_ObjectHideFlags: 0
