@@ -11,8 +11,11 @@ public class S_UIManager : MonoBehaviour
     [SerializeField] private RSE_CallMenu callMenu;
     [SerializeField] private RSE_CallQuit callQuit;
 
+    [SerializeField] private RSE_OnGameLost onGameLost;
+
     [Header("References")]
     [SerializeField] private GameObject panelPause;
+    [SerializeField] private GameObject panelGameOver;
 
     private void OnEnable()
     {
@@ -22,6 +25,8 @@ public class S_UIManager : MonoBehaviour
         callRestart.action += Restart;
         callMenu.action += Menu;
         callQuit.action += Quit;
+
+        onGameLost.action += GameOver;
     }
 
     private void OnDisable()
@@ -32,6 +37,8 @@ public class S_UIManager : MonoBehaviour
         callRestart.action -= Restart;
         callMenu.action -= Menu;
         callQuit.action -= Quit;
+
+        onGameLost.action -= GameOver;
     }
 
     private void Update()
@@ -82,5 +89,12 @@ public class S_UIManager : MonoBehaviour
     private void Quit()
     {
         Application.Quit();
+    }
+
+    private void GameOver()
+    {
+        panelGameOver.SetActive(true);
+
+        Time.timeScale = 0;
     }
 }

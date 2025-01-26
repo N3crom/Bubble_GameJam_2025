@@ -41,6 +41,8 @@ public class S_ReputationManager : MonoBehaviour
 
         if(_rsoReputation.ReputationCurrency <= 0)
         {
+            _rsoReputation.ReputationCurrency = 0;
+            _rseOnReputationChanged.RaiseEvent();
             _rseOnGameLost.RaiseEvent();
         }
     }
