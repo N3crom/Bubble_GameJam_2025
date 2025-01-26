@@ -26,12 +26,12 @@ MonoBehaviour:
   - Id: 1
     Name: Soda
     Descriptions:
-    - Hello, I'm looking for a beverage, It looks like a bottle, that makes tiny
-      bubbles and it is for drinking. Do you have this for me please?
-    - Hello, would you have something like a bottle, it's a beverage, it's for drinking,
+    - Hello, I'm looking for a beverage, It looks like a can, that makes tiny bubbles
+      and it is for drinking. Do you have this for me please?
+    - Hello, would you have something like a can, it's a beverage, it's for drinking,
       the bubbles it makes are tiny. Please?
-    - Hey do y'all have that thing that's for drinking, looks like a bottle, like
-      a beverage, y'know? It makes tiny bubbles.
+    - Hey do y'all have that thing that's for drinking, looks like a can, like a
+      beverage, y'know? It makes tiny bubbles.
     Sprite: {fileID: 21300000, guid: ae2c90d9b43767747927268197fe790b, type: 3}
   - Id: 2
     Name: Bubble gun
