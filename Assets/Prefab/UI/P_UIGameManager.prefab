@@ -1481,6 +1481,7 @@ MonoBehaviour:
   textScore: {fileID: 1244258164528817002}
   textimpatientTime: {fileID: 1926882215524586437}
   sliderimpatientTime: {fileID: 1454685592103400958}
+  sliderimpatientTimeFill: {fileID: 280015196670514558}
   sliderReputation: {fileID: 473384259336916086}
   textReputation: {fileID: 1789687440900815971}
   textdescription: {fileID: 1398084135769787205}
@@ -1499,6 +1500,7 @@ MonoBehaviour:
   - Are you kidding me?! You're lame, loser!
   - How could mix this up?! Are you dumb or something?
   - If that's no skill issue, I don't know what is!
+  timeTicking: 3
 --- !u!114 &7953605675297662411
 MonoBehaviour:
   m_ObjectHideFlags: 0

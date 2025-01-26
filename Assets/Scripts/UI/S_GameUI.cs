@@ -37,6 +37,7 @@ public class S_GameUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI textimpatientTime;
     [SerializeField] private Slider sliderimpatientTime;
+    [SerializeField] private GameObject sliderimpatientTimeFill;
 
     [SerializeField] private Slider sliderReputation;
     [SerializeField] private TextMeshProUGUI textReputation;
@@ -46,8 +47,11 @@ public class S_GameUI : MonoBehaviour
     [SerializeField] private Transform gridParent;
     [SerializeField] private GameObject itemPrefab;
 
+    [Header("Parameters")]
     [SerializeField] private List<string> listTextGood;
     [SerializeField] private List<string> listTextBad;
+
+    [SerializeField] private int timeTicking;
 
     private Coroutine coroutineText;
     private Coroutine coroutineTimer;
@@ -126,6 +130,11 @@ public class S_GameUI : MonoBehaviour
 
             currentImpatientTime.CurrentImpatientTime = Mathf.Lerp(impatientTime.ImpatientTime, 0f, elapsedTime / impatientTime.ImpatientTime);
 
+            if(currentImpatientTime.CurrentImpatientTime <= timeTicking)
+            {
+                sliderimpatientTimeFill.transform.GetComponent<Image>().color = Color.red;
+            }
+
             yield return null;
         }
 
@@ -172,6 +181,8 @@ public class S_GameUI : MonoBehaviour
         {
             Destroy(gridParent.GetChild(i).gameObject);
         }
+
+        sliderimpatientTimeFill.transform.GetComponent<Image>().color = Color.green;
     }
 
     private void InitialisationCarts(List<Item> listItems)
