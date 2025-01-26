@@ -10,6 +10,7 @@ public class S_ReputationManager : MonoBehaviour
     [SerializeField] RSE_RemoveReputation _rseRemoveScore;
     [SerializeField] RSE_OnReputationChanged _rseOnReputationChanged;
     [SerializeField] RSE_OnGameLost _rseOnGameLost;
+    [SerializeField] AudioSource _audioSource;
 
     [Header("Parameters Time")]
     [SerializeField] private float timeTranslate;
@@ -56,6 +57,9 @@ public class S_ReputationManager : MonoBehaviour
             _rsoReputation.ReputationCurrency = 0;
             _rseOnReputationChanged.RaiseEvent();
             _rseOnGameLost.RaiseEvent();
+            //_audioSource.Play();
+            Debug.Log("vv");
+            _audioSource.PlayOneShot(_audioSource.clip);
         }
     }
 
