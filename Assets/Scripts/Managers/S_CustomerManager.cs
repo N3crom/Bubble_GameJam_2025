@@ -39,7 +39,6 @@ public class S_CustomerManager : MonoBehaviour
 
         _ssoSpritesCustomersList.Setup();
 
-        _rseOnClientLeave.action += CreateCustomer;
         _rseOnTimerEnd.action += TimerEnd;
 
         StartCoroutine(FirstSpawnStart());
@@ -50,7 +49,6 @@ public class S_CustomerManager : MonoBehaviour
     {
         _ssoSpritesCustomersList.ClearDictionnary();
         _rseOnItemGive.action -= TcheckItemIdGive;
-        _rseOnClientLeave.action -= CreateCustomer;
         _rseOnTimerEnd.action -= TimerEnd;
     }
 
@@ -122,6 +120,8 @@ public class S_CustomerManager : MonoBehaviour
     IEnumerator SpawnDelay()
     {
         yield return new WaitForSeconds(2);
+
+        _rseOnClientLeave.RaiseEvent();
 
         CreateCustomer();
 

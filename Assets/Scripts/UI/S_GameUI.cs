@@ -26,6 +26,9 @@ public class S_GameUI : MonoBehaviour
     [SerializeField] private RSE_OnTimerEnd onTimerEnd;
     [SerializeField] private RSE_StopTimer stopTimer;
     [SerializeField] private RSE_OnListGenerationFinish onListGenerationFinish;
+    [SerializeField] private RSE_OnBadArticleGive onBadArticleGive;
+    [SerializeField] private RSE_OnGoodArticleGive onGoodArticleGive;
+    [SerializeField] private RSE_OnClientLeave onClientLeave;
 
     [Header("References")]
     [SerializeField] private S_UIManager uiManager;
@@ -55,6 +58,11 @@ public class S_GameUI : MonoBehaviour
         stopTimer.action += StopTimer;
 
         onListGenerationFinish.action += InitialisationCarts;
+
+        onGoodArticleGive.action += BubbleSucces;
+        onBadArticleGive.action += BubbleFail;
+
+        onClientLeave.action += RemoveBubble;
     }
 
     private void OnDisable()
@@ -66,6 +74,11 @@ public class S_GameUI : MonoBehaviour
         stopTimer.action -= StopTimer;
 
         onListGenerationFinish.action -= InitialisationCarts;
+
+        onGoodArticleGive.action -= BubbleSucces;
+        onBadArticleGive.action -= BubbleFail;
+
+        onClientLeave.action -= RemoveBubble;
     }
 
     private void Start()
@@ -151,9 +164,6 @@ public class S_GameUI : MonoBehaviour
         textimpatientTime.text = "";
         sliderimpatientTime.value = impatientTime.ImpatientTime;
         sliderimpatientTime.maxValue = impatientTime.ImpatientTime;
-        textdescription.text = "";
-
-        textdescription.transform.parent.gameObject.SetActive(false);
 
         for (int i = gridParent.childCount - 1; i >= 0; i--)
         {
@@ -181,5 +191,22 @@ public class S_GameUI : MonoBehaviour
     {
         sliderReputation.value = reputation.ReputationCurrency;
         textReputation.text = reputation.ReputationCurrency.ToString() + "%";
+    }
+
+    private void RemoveBubble()
+    {
+        textdescription.text = "";
+
+        textdescription.transform.parent.gameObject.SetActive(false);
+    }
+
+    private void BubbleSucces()
+    {
+        textdescription.text = "Thank you!";
+    }
+
+    private void BubbleFail()
+    {
+        textdescription.text = "F*ck you!";
     }
 }

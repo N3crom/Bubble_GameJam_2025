@@ -1399,6 +1399,9 @@ MonoBehaviour:
   onTimerEnd: {fileID: 11400000, guid: 494876499fabeae468d3c14e712dd3c8, type: 2}
   stopTimer: {fileID: 11400000, guid: a22d179225be23d48be18def8d8d276c, type: 2}
   onListGenerationFinish: {fileID: 11400000, guid: dccbd5c40d0e26947a43d0953b209a7c, type: 2}
+  onBadArticleGive: {fileID: 11400000, guid: fd079153e38117c4ab9c9d1a8250bc6e, type: 2}
+  onGoodArticleGive: {fileID: 11400000, guid: 5881d2003eb12b542af2aa70f55fefad, type: 2}
+  onClientLeave: {fileID: 11400000, guid: 74fc1731de71e4045a1f79efbc0a717e, type: 2}
   uiManager: {fileID: 6136716799068188112}
   textScore: {fileID: 1244258164528817002}
   textimpatientTime: {fileID: 1926882215524586437}
