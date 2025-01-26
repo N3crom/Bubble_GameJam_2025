@@ -6,18 +6,14 @@ using TMPro;
 
 public class S_LeaderboardShow : MonoBehaviour
 {
-    [SerializeField] 
-    private List<TextMeshProUGUI> textRank;
-    [SerializeField] 
-    private List<TextMeshProUGUI> textName;
-    [SerializeField] 
-    private List<TextMeshProUGUI> textWave;
+    [SerializeField] private List<TextMeshProUGUI> textRank;
+    [SerializeField] private List<TextMeshProUGUI> textName;
+    [SerializeField] private List<TextMeshProUGUI> textWave;
 
     public GameObject scroll;
 
     private void Start()
     {
-        //UploadEntry();
         LoadEntries();
     }
 
@@ -60,11 +56,5 @@ public class S_LeaderboardShow : MonoBehaviour
                 textWave[i].text = $"{entries[i].Score}";
             }
         });
-    }
-
-    public void UploadEntry()
-    {
-        Leaderboards.Score.UploadNewEntry("Paul", 50);
-        Leaderboards.Score.ResetPlayer();
     }
 }

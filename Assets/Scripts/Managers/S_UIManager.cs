@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using Dan.Main;
 
 public class S_UIManager : MonoBehaviour
 {
@@ -107,6 +108,9 @@ public class S_UIManager : MonoBehaviour
     {
         panelGameOver.SetActive(true);
         textScore.text = score.Score.ToString();
+
+        Leaderboards.Score.UploadNewEntry("Paul", 50);
+        Leaderboards.Score.ResetPlayer();
 
         Time.timeScale = 0;
     }

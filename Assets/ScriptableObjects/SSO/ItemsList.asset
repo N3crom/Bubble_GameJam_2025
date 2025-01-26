@@ -122,7 +122,7 @@ MonoBehaviour:
       for drinking, the bubbles it makes are tiny. Please?
     - Hey do y'all have that thing that's for drinking, looks like a green bottle,
       like a beverage, y'know? It makes tiny bubbles.
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 89b4d820b6ed4664d9dcae3a210bc0ce, type: 3}
   - Id: 11
     Name: Bubble umbrella
     Descriptions:
