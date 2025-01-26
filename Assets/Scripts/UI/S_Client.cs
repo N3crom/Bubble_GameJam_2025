@@ -142,7 +142,7 @@ public class S_Client : MonoBehaviour, IDropHandler
             yield return null;
         }
 
-        transform.localPosition = _originalPosition;
+        GoToOriginalPosition();
     }
 
     public void GoToOriginalPosition()
