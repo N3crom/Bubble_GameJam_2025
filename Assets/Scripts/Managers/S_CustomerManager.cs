@@ -10,6 +10,7 @@ public class S_CustomerManager : MonoBehaviour
     [SerializeField] float _timeLeave;
     [SerializeField] float _multiplicateurTimePurcentage;
     [SerializeField] float _minimumTimeImpatientValue;
+    [SerializeField] int _defaultScoreAdd;
 
     [Header("Reference")]
     [SerializeField] RSO_CurrentCustomers _rsoCurrentCustomers;
@@ -115,7 +116,7 @@ public class S_CustomerManager : MonoBehaviour
 
             _rseOnCustomerStateChange.RaiseEvent(CustomerState.Happy);
 
-            _rseAddScore.RaiseEvent(10);
+            _rseAddScore.RaiseEvent(_defaultScoreAdd);
 
             StartCoroutine(SpawnDelay());
 
