@@ -11,6 +11,9 @@ public class S_ReputationManager : MonoBehaviour
     [SerializeField] RSE_OnReputationChanged _rseOnReputationChanged;
     [SerializeField] RSE_OnGameLost _rseOnGameLost;
 
+    [Header("Parameters Time")]
+    [SerializeField] private float timeTranslate;
+
     int _startReputation = 0;
     void Start()
     {
@@ -27,23 +30,42 @@ public class S_ReputationManager : MonoBehaviour
         _rseRemoveScore.action -= RemoveReputation;
     }
 
-    private void AddReputation(int reputationAdd)
+    private IEnumerator Transition(int reputationAdd)
     {
-        _rsoReputation.ReputationCurrency += reputationAdd;
-        if(_rsoReputation.ReputationCurrency > 100) _rsoReputation.ReputationCurrency = 100;
-        _rseOnReputationChanged.RaiseEvent();
-    }
+        float startReputation = _rsoReputation.ReputationCurrency;
+        float targetReputation = Mathf.Clamp(startReputation + reputationAdd, 0, 100);
 
-    private void RemoveReputation(int reputationToRemove)
-    {
-        _rsoReputation.ReputationCurrency -= reputationToRemove;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < timeTranslate)
+        {
+            elapsedTime += Time.deltaTime;
+
+            _rsoReputation.ReputationCurrency = (int)Mathf.Lerp(startReputation, targetReputation, elapsedTime / timeTranslate);
+
+            _rseOnReputationChanged.RaiseEvent();
+
+            yield return null;
+        }
+
+        _rsoReputation.ReputationCurrency = (int)targetReputation;
         _rseOnReputationChanged.RaiseEvent();
 
-        if(_rsoReputation.ReputationCurrency <= 0)
+        if (_rsoReputation.ReputationCurrency <= 0)
         {
             _rsoReputation.ReputationCurrency = 0;
             _rseOnReputationChanged.RaiseEvent();
             _rseOnGameLost.RaiseEvent();
         }
+    }
+
+    private void AddReputation(int reputationAdd)
+    {
+        StartCoroutine(Transition(reputationAdd));
+    }
+
+    private void RemoveReputation(int reputationToRemove)
+    {
+        StartCoroutine(Transition(-reputationToRemove));
     }
 }

@@ -393,10 +393,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 621964370694877398, guid: 2507f9062627e0f4894e18e1c964c522, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2369637518902254425, guid: 2507f9062627e0f4894e18e1c964c522, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -445,6 +441,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5499795745508532214, guid: 2507f9062627e0f4894e18e1c964c522, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6080319586570969624, guid: 2507f9062627e0f4894e18e1c964c522, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -456,6 +456,10 @@ PrefabInstance:
     - target: {fileID: 7329563927052260005, guid: 2507f9062627e0f4894e18e1c964c522, type: 3}
       propertyPath: m_Name
       value: P_UIGameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492262934729532070, guid: 2507f9062627e0f4894e18e1c964c522, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

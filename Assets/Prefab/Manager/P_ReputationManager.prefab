@@ -49,3 +49,4 @@ MonoBehaviour:
   _rseRemoveScore: {fileID: 11400000, guid: 5306950507e60d44188ae9e82f8848b7, type: 2}
   _rseOnReputationChanged: {fileID: 11400000, guid: 9ad2ed10df6815445a7fc1b93ad62405, type: 2}
   _rseOnGameLost: {fileID: 11400000, guid: 0160400528546e84e8eae5988a4ca55c, type: 2}
+  timeTranslate: 1
