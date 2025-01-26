@@ -1610,6 +1610,7 @@ MonoBehaviour:
   onBadArticleGive: {fileID: 11400000, guid: fd079153e38117c4ab9c9d1a8250bc6e, type: 2}
   onGoodArticleGive: {fileID: 11400000, guid: 5881d2003eb12b542af2aa70f55fefad, type: 2}
   onClientLeave: {fileID: 11400000, guid: 74fc1731de71e4045a1f79efbc0a717e, type: 2}
+  _rseOnBadArticleGive: {fileID: 11400000, guid: fd079153e38117c4ab9c9d1a8250bc6e, type: 2}
   uiManager: {fileID: 6136716799068188112}
   textScore: {fileID: 1244258164528817002}
   textimpatientTime: {fileID: 1926882215524586437}
@@ -1634,6 +1635,8 @@ MonoBehaviour:
   - How could mix this up?! Are you dumb or something?
   - If that's no skill issue, I don't know what is!
   timeTicking: 3
+  _shakeDuration: 1
+  _shakeMagnitude: 1.5
 --- !u!114 &7953605675297662411
 MonoBehaviour:
   m_ObjectHideFlags: 0

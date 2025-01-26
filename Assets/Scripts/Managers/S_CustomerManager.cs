@@ -129,6 +129,9 @@ public class S_CustomerManager : MonoBehaviour
 
         _rseStopTimer.RaiseEvent();
 
+        _rseOnBadArticleGive.RaiseEvent();
+        _rseOnCustomerShake.RaiseEvent(_shakeDuration, _shakeMagnitude);
+
 
         StartCoroutine(SpawnDelay());
     }
