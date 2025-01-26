@@ -113,6 +113,10 @@ public class S_CustomerManager : MonoBehaviour
     void TimerEnd()
     {
         _rseOnRemoveReputation.RaiseEvent(_rsoReputationLost.ReputationLost);
+
+        _rseStopTimer.RaiseEvent();
+
+
         StartCoroutine(SpawnDelay());
     }
 
