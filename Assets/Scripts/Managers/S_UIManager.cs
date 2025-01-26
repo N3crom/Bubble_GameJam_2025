@@ -107,7 +107,7 @@ public class S_UIManager : MonoBehaviour
     private void GameOver()
     {
         panelGameOver.SetActive(true);
-        textScore.text = score.Score.ToString();
+        textScore.text = "Score: " + score.Score.ToString();
 
         Leaderboards.Score.UploadNewEntry("Anonyme", score.Score);
         Leaderboards.Score.ResetPlayer();
