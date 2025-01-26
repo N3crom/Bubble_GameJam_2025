@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3271469799255505500}
   - component: {fileID: 1118284570311047901}
   m_Layer: 0
-  m_Name: PS_Bystander
+  m_Name: PS_Bystander_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
