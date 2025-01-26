@@ -20,8 +20,9 @@ public class S_Client : MonoBehaviour, IDropHandler
     [SerializeField] RSE_OnItemGive _rseOnItemGive;
     [SerializeField] RSE_OnClientCreate _rseOnClientCreate;
     [SerializeField] RSE_OnCustomerStateChange _rseOnCustomerStateChange;
+    [SerializeField] RSE_OnCustomerShake _rseOnCustomerShake;
 
-    
+    private Vector3 _originalPosition;
     private Customer _customer;
 
 
@@ -33,7 +34,9 @@ public class S_Client : MonoBehaviour, IDropHandler
 
         _rectTransform.localScale = _startScale;
         //StartCoroutine(CustomerSpawn());
+        _originalPosition = transform.localPosition;
 
+        _rseOnCustomerShake.action += Shake;
     }
 
     private void OnDestroy()
@@ -41,7 +44,7 @@ public class S_Client : MonoBehaviour, IDropHandler
         _rseOnCustomerStateChange.action -= ChangeStateSprite;
         _rseOnClientCreate.action -= Initialize;
 
-
+        _rseOnCustomerShake.action -= Shake;
     }
     // Update is called once per frame
     void Update()
@@ -116,5 +119,34 @@ public class S_Client : MonoBehaviour, IDropHandler
     void ChangeStateSprite(CustomerState customerState)
     {
         _imageClient.sprite = _customer.SpritesDict[customerState];
-    } 
+    }
+
+
+    public void Shake(float duration, float magnitude)
+    {
+        StartCoroutine(ShakeCoroutine(duration, magnitude));
+    }
+
+    private IEnumerator ShakeCoroutine(float duration, float magnitude)
+    {
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+
+            transform.localPosition = new Vector3(_originalPosition.x + x, _originalPosition.y + y, _originalPosition.z);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.localPosition = _originalPosition;
+    }
+
+    public void GoToOriginalPosition()
+    {
+        transform.localPosition = _originalPosition;
+    }
 }

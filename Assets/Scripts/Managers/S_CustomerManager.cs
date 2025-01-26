@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class S_CustomerManager : MonoBehaviour
 {
+    [Header("Parameter")]
+    [SerializeField] float _shakeDuration;
+    [SerializeField] float _shakeMagnitude;
+
     [Header("Reference")]
     [SerializeField] RSO_CurrentCustomers _rsoCurrentCustomers;
     [SerializeField] SSO_ItemsList _rsoItemsList;
@@ -21,6 +25,7 @@ public class S_CustomerManager : MonoBehaviour
     [SerializeField] RSE_AddScore _rseAddScore;
     [SerializeField] RSE_StopTimer _rseStopTimer;
     [SerializeField] RSE_OnCustomerStateChange _rseOnCustomerStateChange;
+    [SerializeField] RSE_OnCustomerShake _rseOnCustomerShake;
 
     Customer CurrentCustomer;
 
@@ -99,6 +104,8 @@ public class S_CustomerManager : MonoBehaviour
             _rseOnRemoveReputation.RaiseEvent(_rsoReputationLost.ReputationLost);
 
             _rseOnCustomerStateChange.RaiseEvent(CustomerState.Angry);
+
+            _rseOnCustomerShake.RaiseEvent(_shakeDuration, _shakeMagnitude);
 
             StartCoroutine(SpawnDelay());
 

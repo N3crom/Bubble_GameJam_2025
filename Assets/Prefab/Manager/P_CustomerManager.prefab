@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94c56f3bac7694459917e5fe0bf0682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shakeDuration: 1.5
+  _shakeMagnitude: 5
   _rsoCurrentCustomers: {fileID: 11400000, guid: 5ec40a2c4729c514280280275a23751d, type: 2}
   _rsoItemsList: {fileID: 11400000, guid: f2b7c6736c5292b479fe6311fbfd3973, type: 2}
   _ssoSpritesCustomersList: {fileID: 11400000, guid: 1a67c6209ac2b6242a47e03e7830410c, type: 2}
@@ -60,4 +62,5 @@ MonoBehaviour:
   _rseAddScore: {fileID: 11400000, guid: 6c577d56fef2de64fb63986e18cb2a5f, type: 2}
   _rseStopTimer: {fileID: 11400000, guid: a22d179225be23d48be18def8d8d276c, type: 2}
   _rseOnCustomerStateChange: {fileID: 11400000, guid: cdea1d28ba509c0419941471beb0ac63, type: 2}
+  _rseOnCustomerShake: {fileID: 11400000, guid: bf1146c5e6e83a74992a9b2f08f0f4aa, type: 2}
   itemId: 0
