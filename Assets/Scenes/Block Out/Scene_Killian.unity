@@ -401,6 +401,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2911261399137071401, guid: 2507f9062627e0f4894e18e1c964c522, type: 3}
+      propertyPath: m_Name
+      value: PanelBackground
+      objectReference: {fileID: 0}
     - target: {fileID: 3166400045066568348, guid: 2507f9062627e0f4894e18e1c964c522, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
