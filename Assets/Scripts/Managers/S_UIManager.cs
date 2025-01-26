@@ -1,5 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class S_UIManager : MonoBehaviour
 {
@@ -13,9 +17,13 @@ public class S_UIManager : MonoBehaviour
 
     [SerializeField] private RSE_OnGameLost onGameLost;
 
+    [Header("RSO")]
+    [SerializeField] private RSO_Score score;
+
     [Header("References")]
     [SerializeField] private GameObject panelPause;
     [SerializeField] private GameObject panelGameOver;
+    [SerializeField] private TextMeshProUGUI textScore;
 
     private void OnEnable()
     {
@@ -98,6 +106,7 @@ public class S_UIManager : MonoBehaviour
     private void GameOver()
     {
         panelGameOver.SetActive(true);
+        textScore.text = score.Score.ToString();
 
         Time.timeScale = 0;
     }
