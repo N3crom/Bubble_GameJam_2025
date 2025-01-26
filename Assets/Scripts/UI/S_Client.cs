@@ -144,7 +144,7 @@ public class S_Client : MonoBehaviour, IDropHandler
 
             transform.localPosition = new Vector3(_originalPosition.x + x, _originalPosition.y + y, _originalPosition.z);
 
-            elapsed += Time.fixedDeltaTime;
+            elapsed += Time.deltaTime;
             yield return null;
         }
 

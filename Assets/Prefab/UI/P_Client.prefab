@@ -92,7 +92,7 @@ MonoBehaviour:
   _timerToCustomerAparition: 1
   _startScale: {x: 0.6, y: 0.6, z: 0.6}
   _endScale: {x: 1, y: 1, z: 1}
-  _speedToGoRight: 4
+  _speedToGoRight: 4.5
   _imageClient: {fileID: 6834266759485588135}
   _rectTransform: {fileID: 6078744107171783503}
   _rseOnTimerStart: {fileID: 11400000, guid: ef7c21bc8cfaa8841983382d0898ee7b, type: 2}
