@@ -95,7 +95,7 @@ public class S_CustomerManager : MonoBehaviour
         _rsoCurrentCustomers.CurrentCustomer = customer;
         _rseOnClientCreate.RaiseEvent(customer);
 
-        _audioSource.volume = 0.1f;
+        _audioSource.volume = 0.05f;
         _audioSource.PlayOneShot(_audioClipBellRing);
         //_audioSource.volume = 1f;
 
@@ -122,7 +122,7 @@ public class S_CustomerManager : MonoBehaviour
         }
         else
         {
-            _audioSource.volume = 0.5f;
+            _audioSource.volume = 0.3f;
 
             _audioSource.PlayOneShot(_audioClipWrongCards);
 
