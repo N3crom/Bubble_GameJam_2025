@@ -243,6 +243,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7229773731972598542, guid: 2507f9062627e0f4894e18e1c964c522, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1869166711}
     - target: {fileID: 7329563927052260005, guid: 2507f9062627e0f4894e18e1c964c522, type: 3}
       propertyPath: m_Name
       value: P_UIGameManager
