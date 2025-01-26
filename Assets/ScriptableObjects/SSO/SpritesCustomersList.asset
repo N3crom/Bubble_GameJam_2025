@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpritesCustomersList:
   - {fileID: 11400000, guid: b9f8e107c0826ae49b1c520b3aaf19f8, type: 2}
+  - {fileID: 11400000, guid: 8bc2b53cd00659b4f9540129a14e871d, type: 2}
