@@ -1486,6 +1486,19 @@ MonoBehaviour:
   textdescription: {fileID: 1398084135769787205}
   gridParent: {fileID: 3228108191533623330}
   itemPrefab: {fileID: 5805754893656054322, guid: f6973bc3d8baa6c40abd597c48b7b7cd, type: 3}
+  listTextGood:
+  - Hey! I apreciate this, man! Thanks!
+  - Thank you! Bye bye!
+  - Exactly what I wanted! You're the boss, mate!
+  - Ha ha! That's right! Thanks, see ya!
+  - That's what i'm talking about! later, dude!
+  listTextBad:
+  - Huh?! Did u even listen to me?
+  - WTF, dude? Not cool at all!
+  - Is that a f*cking joke? Geez, man, you're twisted!
+  - Are you kidding me?! You're lame, loser!
+  - How could mix this up?! Are you dumb or something?
+  - If that's no skill issue, I don't know what is!
 --- !u!114 &7953605675297662411
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -46,6 +46,9 @@ public class S_GameUI : MonoBehaviour
     [SerializeField] private Transform gridParent;
     [SerializeField] private GameObject itemPrefab;
 
+    [SerializeField] private List<string> listTextGood;
+    [SerializeField] private List<string> listTextBad;
+
     private Coroutine coroutineText;
     private Coroutine coroutineTimer;
 
@@ -202,11 +205,15 @@ public class S_GameUI : MonoBehaviour
 
     private void BubbleSucces()
     {
-        textdescription.text = "Thank you!";
+        int random = Random.Range(0, listTextGood.Count);
+
+        textdescription.text = listTextGood[random];
     }
 
     private void BubbleFail()
     {
-        textdescription.text = "F*ck you!";
+        int random = Random.Range(0, listTextBad.Count);
+
+        textdescription.text = listTextBad[random];
     }
 }
