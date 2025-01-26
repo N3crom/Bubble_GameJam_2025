@@ -47,6 +47,10 @@ public class S_GameUI : MonoBehaviour
     [SerializeField] private Transform gridParent;
     [SerializeField] private GameObject itemPrefab;
 
+    [SerializeField] AudioClip _audioTickingClicp;
+    [SerializeField] AudioSource _audioSource;
+
+
     [Header("Parameters")]
     [SerializeField] private List<string> listTextGood;
     [SerializeField] private List<string> listTextBad;
@@ -145,10 +149,12 @@ public class S_GameUI : MonoBehaviour
             if(currentImpatientTime.CurrentImpatientTime <= timeTicking)
             {
                 sliderimpatientTimeFill.transform.GetComponent<Image>().color = Color.red;
+                _audioSource.PlayOneShot(_audioTickingClicp);
             }
 
             yield return null;
         }
+        _audioSource.Stop();
 
         sliderimpatientTime.value = 0;
         currentImpatientTime.CurrentImpatientTime = 0;
