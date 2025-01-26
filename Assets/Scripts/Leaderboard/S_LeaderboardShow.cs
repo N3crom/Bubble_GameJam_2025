@@ -39,6 +39,8 @@ public class S_LeaderboardShow : MonoBehaviour
                 t.text = "0";
             }
 
+            Debug.Log("t");
+
             int loopLength = (entries.Length < textName.Count) ? entries.Length : textName.Count;
             for (int i = 0; i < loopLength; i++)
             {
@@ -54,6 +56,8 @@ public class S_LeaderboardShow : MonoBehaviour
                 textRank[i].text = $"{entries[i].Rank}" + ".";
                 textName[i].text = $"{entries[i].Username}";
                 textWave[i].text = $"{entries[i].Score}";
+
+                Debug.Log($"{entries[i].Rank} {entries[i].Username} {entries[i].Score}");
             }
         });
     }
