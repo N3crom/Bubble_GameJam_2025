@@ -1395,7 +1395,7 @@ Canvas:
   m_GameObject: {fileID: 2229576365921289988}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1403,7 +1403,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -1466,7 +1466,6 @@ MonoBehaviour:
   impatientTime: {fileID: 11400000, guid: a1941a1c28d8b0248a38694806fc7687, type: 2}
   currentImpatientTime: {fileID: 11400000, guid: f1e9836351464404eaa07f1bb9883e60, type: 2}
   reputation: {fileID: 11400000, guid: 155cf26875d15d74fa3d4d9c3353811f, type: 2}
-  talkTime: {fileID: 11400000, guid: bde18537c75ff294685e668a9d902e6a, type: 2}
   callPause: {fileID: 11400000, guid: 742524729367a9a46a92206e364f2df1, type: 2}
   onScoreChanged: {fileID: 11400000, guid: 74bb29d7a267b9548999d8f11a0f435e, type: 2}
   onReputationChanged: {fileID: 11400000, guid: 9ad2ed10df6815445a7fc1b93ad62405, type: 2}

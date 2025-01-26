@@ -1,16 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 using Dan.Main;
 using TMPro;
-using System.Runtime.CompilerServices;
-using UnityEngine.SocialPlatforms.Impl;
-using UnityEngine.UI;
-using static UnityEditor.Progress;
-using System;
 
-public class Leaderboard : MonoBehaviour
+public class S_LeaderboardShow : MonoBehaviour
 {
     [SerializeField] 
     private List<TextMeshProUGUI> textRank;
