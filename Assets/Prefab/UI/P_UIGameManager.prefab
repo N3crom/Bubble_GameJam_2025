@@ -3772,6 +3772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3166400045066568348}
   - component: {fileID: 6136716799068188112}
+  - component: {fileID: 909541568381817625}
   m_Layer: 0
   m_Name: P_UIGameManager
   m_TagString: Untagged
@@ -3816,6 +3817,22 @@ MonoBehaviour:
   onGameLost: {fileID: 11400000, guid: 0160400528546e84e8eae5988a4ca55c, type: 2}
   panelPause: {fileID: 3253255126073502704}
   panelGameOver: {fileID: 7791534834599067293}
+--- !u!114 &909541568381817625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329563927052260005}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218a3f93abbf8784ca9f27a193d7384e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textRank: []
+  textName: []
+  textWave: []
+  scroll: {fileID: 0}
 --- !u!1 &7340584500540718819
 GameObject:
   m_ObjectHideFlags: 0
@@ -3916,7 +3933,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
