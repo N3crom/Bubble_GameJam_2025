@@ -23,6 +23,7 @@ public class S_Client : MonoBehaviour, IDropHandler
     [SerializeField] RSE_OnCustomerStateChange _rseOnCustomerStateChange;
     [SerializeField] RSE_OnCustomerShake _rseOnCustomerShake;
     [SerializeField] RSE_OnClientGoToRight _rseOnClientGoToRight;
+    [SerializeField] BoxCollider2D _boxCollider;
 
 
     private Vector3 _originalPosition;
@@ -41,6 +42,7 @@ public class S_Client : MonoBehaviour, IDropHandler
 
         _rseOnCustomerShake.action += Shake;
         _rseOnClientGoToRight.action += StartCoroutineGoRight;
+        _rseOnTimerEnd.action += DesabledCollision;
     }
 
     private void OnDestroy()
@@ -51,23 +53,28 @@ public class S_Client : MonoBehaviour, IDropHandler
         _rseOnCustomerShake.action -= Shake;
         _rseOnClientGoToRight.action -= StartCoroutineGoRight;
 
+        _rseOnTimerEnd.action -= DesabledCollision;
+
+
     }
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void OnDrop(PointerEventData eventData)
     {
         GameObject draggedObject = eventData.pointerDrag;
 
-        if (draggedObject != null)
+        if (draggedObject != null && _boxCollider.isActiveAndEnabled == true)
         {
             S_Carte draggable = draggedObject.GetComponent<S_Carte>();
             if (draggable != null)
             {
                 int value = draggable.dataValue;
+
+                _boxCollider.enabled = false;
 
                 _rseOnItemGive.RaiseEvent(value);
             }
@@ -133,6 +140,11 @@ public class S_Client : MonoBehaviour, IDropHandler
         StartCoroutine(ShakeCoroutine(duration, magnitude));
     }
 
+    private void DesabledCollision()
+    {
+        _boxCollider.enabled = false;
+    }
+
     private IEnumerator ShakeCoroutine(float duration, float magnitude)
     {
         float elapsed = 0f;
@@ -179,5 +191,8 @@ public class S_Client : MonoBehaviour, IDropHandler
         }
         //yield return null;
         GoToOriginalPosition();
+
+        _boxCollider.enabled = true;
+
     }
 }

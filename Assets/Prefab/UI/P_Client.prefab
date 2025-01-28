@@ -103,6 +103,7 @@ MonoBehaviour:
   _rseOnCustomerStateChange: {fileID: 11400000, guid: cdea1d28ba509c0419941471beb0ac63, type: 2}
   _rseOnCustomerShake: {fileID: 11400000, guid: bf1146c5e6e83a74992a9b2f08f0f4aa, type: 2}
   _rseOnClientGoToRight: {fileID: 11400000, guid: 3dc5ecb84738fae49bbf87d7a86d0b98, type: 2}
+  _boxCollider: {fileID: 8825551471022365897}
 --- !u!61 &8825551471022365897
 BoxCollider2D:
   m_ObjectHideFlags: 0
