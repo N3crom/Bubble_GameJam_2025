@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 public class S_Client : MonoBehaviour, IDropHandler
 {
@@ -10,7 +11,8 @@ public class S_Client : MonoBehaviour, IDropHandler
     [SerializeField] float _timerToCustomerAparition;
     [SerializeField] Vector3 _startScale;
     [SerializeField] Vector3 _endScale;
-    [SerializeField] float _speedToGoRight;
+    [SerializeField] float _xOffSetDecal;
+    [SerializeField] float _timerToLeave;
 
     [Header("Reference")]
     [SerializeField] Image _imageClient;
@@ -171,28 +173,20 @@ public class S_Client : MonoBehaviour, IDropHandler
 
     private void StartCoroutineGoRight(float duration)
     {
-        StartCoroutine(ClientGoTORight(duration));
+        StartCoroutine(ClientGoTORight(_timerToLeave));
 
     }
 
     IEnumerator ClientGoTORight(float duration)
     {
-        float elapsed = 0f;
+        transform.DOMoveX(_xOffSetDecal, duration).OnComplete(() => {
+            GoToOriginalPosition();
+            _boxCollider.enabled = true;
 
-        while (elapsed < duration)
-        {
-            float x = _speedToGoRight;
-            
+        });
 
-            transform.localPosition = new Vector3(transform.localPosition.x + x, transform.localPosition.y, transform.localPosition.z);
+        _imageClient.DOFade(0, duration);
 
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-        //yield return null;
-        GoToOriginalPosition();
-
-        _boxCollider.enabled = true;
-
+        yield return null;
     }
 }
