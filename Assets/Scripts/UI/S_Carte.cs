@@ -7,9 +7,19 @@ public class S_Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     private CanvasGroup canvasGroup;
     private Transform originalParent;
     private int originalSiblingIndex;
+    [SerializeField] RSE_OnTimerEnd _rseOnTimerEnd;
 
     public int dataValue;
 
+    void OnEnable()
+    {
+        _rseOnTimerEnd.action += DestroyCard;
+    }
+
+    void OnDisable()
+    {
+        _rseOnTimerEnd.action -= DestroyCard;
+    }
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -46,5 +56,10 @@ public class S_Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         {
             Destroy(gameObject);
         }
+    }
+
+    private void DestroyCard()
+    {
+        Destroy(gameObject);
     }
 }

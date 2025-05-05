@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a1edd548400954429f67fb0e0878e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rseOnTimerEnd: {fileID: 11400000, guid: 494876499fabeae468d3c14e712dd3c8, type: 2}
   dataValue: 0
 --- !u!1 &8833951793151505594
 GameObject:
