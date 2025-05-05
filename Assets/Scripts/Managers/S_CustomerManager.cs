@@ -52,6 +52,7 @@ public class S_CustomerManager : MonoBehaviour
     void Start()
     {
         _rseOnItemGive.action += TcheckItemIdGive;
+        _rseOnGoodArticleGive.action += ReduceImpatienteTime;
 
         _ssoSpritesCustomersList.ClearDictionnary();
 
@@ -67,6 +68,8 @@ public class S_CustomerManager : MonoBehaviour
     {
         _ssoSpritesCustomersList.ClearDictionnary();
         _rseOnItemGive.action -= TcheckItemIdGive;
+        _rseOnGoodArticleGive.action -= ReduceImpatienteTime;
+
         _rseOnTimerEnd.action -= TimerEnd;
 
         _rsoImpatientTime.ImpatientTime = _initialImpactientTimeValue;
@@ -164,7 +167,7 @@ public class S_CustomerManager : MonoBehaviour
         _rseOnClientLeave.RaiseEvent();
 
         yield return new WaitForSeconds(_timeLeave/2);
-        _rsoImpatientTime.ImpatientTime -= _rsoImpatientTime.ImpatientTime * _multiplicateurTimePurcentage;
+        //_rsoImpatientTime.ImpatientTime -= _rsoImpatientTime.ImpatientTime * _multiplicateurTimePurcentage;
         //Debug.Log($"Value before clamp: {_rsoImpatientTime.ImpatientTime}");
 
         _rsoImpatientTime.ImpatientTime = Mathf.Clamp(_rsoImpatientTime.ImpatientTime, _minimumTimeImpatientValue, 10);
@@ -172,6 +175,11 @@ public class S_CustomerManager : MonoBehaviour
         CreateCustomer();
 
         yield return null;
+    }
+
+    void ReduceImpatienteTime()
+    {
+        _rsoImpatientTime.ImpatientTime -= _rsoImpatientTime.ImpatientTime * _multiplicateurTimePurcentage;
     }
 
 
