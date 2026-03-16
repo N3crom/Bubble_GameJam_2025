@@ -837,11 +837,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 1638c2e5-391f-43cd-b22c-e06073c7246d
+  cloudProjectId: 12e75bec-4233-43dc-84f5-0df6bd824fca
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Bubble_GameJam_2025
-  organizationId: necromnekuromu
+  projectName: Pop_n'_Sell
+  organizationId: furnok
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
