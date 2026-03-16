@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class LeaderboardsSample : MonoBehaviour
 {
-    const string LeaderboardId = "my-first-leaderboard";
+    const string LeaderboardId = "Scores";
     string VersionId { get; set; }
     int Offset { get; set; }
     int Limit { get; set; }
