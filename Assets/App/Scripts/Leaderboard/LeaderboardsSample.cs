@@ -20,33 +20,42 @@ public class LeaderboardsSample : MonoBehaviour
         await UnityServices.InitializeAsync();
 
         await SignInAnonymously();
+
+        SetName("Anonymous");
+        AddScore(10);
+
+        AuthenticationService.Instance.SignOut();
+        AuthenticationService.Instance.ClearSessionToken();
+
+        await SignInAnonymously();
+
+        SetName("test");
+        AddScore(100);
     }
 
     async Task SignInAnonymously()
     {
-        AuthenticationService.Instance.SignedIn += () =>
-        {
-            Debug.Log("Signed in as: " + AuthenticationService.Instance.PlayerId);
-        };
-        AuthenticationService.Instance.SignInFailed += s =>
-        {
-            // Take some action here...
-            Debug.Log(s);
-        };
+        AuthenticationService.Instance.SignedIn += () => {};
+        AuthenticationService.Instance.SignInFailed += s => {};
 
-        await AuthenticationService.Instance.SignInAnonymouslyAsync();
+       await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
 
-    public async void AddScore()
+    public async void SetName(string name)
+    { 
+        var nameResponse = await AuthenticationService.Instance.UpdatePlayerNameAsync(name);
+        Debug.Log(JsonConvert.SerializeObject(nameResponse));
+    }
+
+    public async void AddScore(int value)
     {
-        var scoreResponse = await LeaderboardsService.Instance.AddPlayerScoreAsync(LeaderboardId, 102);
+        var scoreResponse = await LeaderboardsService.Instance.AddPlayerScoreAsync(LeaderboardId, value);
         Debug.Log(JsonConvert.SerializeObject(scoreResponse));
     }
 
     public async void GetScores()
     {
-        var scoresResponse =
-            await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId);
+        var scoresResponse = await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId);
         Debug.Log(JsonConvert.SerializeObject(scoresResponse));
     }
 
@@ -54,50 +63,39 @@ public class LeaderboardsSample : MonoBehaviour
     {
         Offset = 10;
         Limit = 10;
-        var scoresResponse =
-            await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId, new GetScoresOptions{Offset = Offset, Limit = Limit});
+        var scoresResponse = await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId, new GetScoresOptions{Offset = Offset, Limit = Limit});
         Debug.Log(JsonConvert.SerializeObject(scoresResponse));
     }
 
     public async void GetPlayerScore()
     {
-        var scoreResponse =
-            await LeaderboardsService.Instance.GetPlayerScoreAsync(LeaderboardId);
+        var scoreResponse = await LeaderboardsService.Instance.GetPlayerScoreAsync(LeaderboardId);
         Debug.Log(JsonConvert.SerializeObject(scoreResponse));
     }
 
     public async void GetPlayerRange()
     {
-        var scoresResponse =
-            await LeaderboardsService.Instance.GetPlayerRangeAsync(LeaderboardId, new GetPlayerRangeOptions{RangeLimit = RangeLimit});
+        var scoresResponse = await LeaderboardsService.Instance.GetPlayerRangeAsync(LeaderboardId, new GetPlayerRangeOptions{RangeLimit = RangeLimit});
         Debug.Log(JsonConvert.SerializeObject(scoresResponse));
     }
 
     public async void GetScoresByPlayerIds()
     {
-        var scoresResponse =
-            await LeaderboardsService.Instance.GetScoresByPlayerIdsAsync(LeaderboardId, FriendIds);
+        var scoresResponse = await LeaderboardsService.Instance.GetScoresByPlayerIdsAsync(LeaderboardId, FriendIds);
         Debug.Log(JsonConvert.SerializeObject(scoresResponse));
     }
 
-    // If the Leaderboard has been reset and the existing scores were archived,
-    // this call will return the list of archived versions available to read from,
-    // in reverse chronological order (so e.g. the first entry is the archived version
-    // containing the most recent scores)
     public async void GetVersions()
     {
-        var versionResponse =
-            await LeaderboardsService.Instance.GetVersionsAsync(LeaderboardId);
+        var versionResponse = await LeaderboardsService.Instance.GetVersionsAsync(LeaderboardId);
 
-        // As an example, get the ID of the most recently archived Leaderboard version
         VersionId = versionResponse.Results[0].Id;
         Debug.Log(JsonConvert.SerializeObject(versionResponse));
     }
 
     public async void GetVersionScores()
     {
-        var scoresResponse =
-            await LeaderboardsService.Instance.GetVersionScoresAsync(LeaderboardId, VersionId);
+        var scoresResponse = await LeaderboardsService.Instance.GetVersionScoresAsync(LeaderboardId, VersionId);
         Debug.Log(JsonConvert.SerializeObject(scoresResponse));
     }
 
@@ -105,15 +103,13 @@ public class LeaderboardsSample : MonoBehaviour
     {
         Offset = 10;
         Limit = 10;
-        var scoresResponse =
-            await LeaderboardsService.Instance.GetVersionScoresAsync(LeaderboardId, VersionId, new GetVersionScoresOptions{Offset = Offset, Limit = Limit});
+        var scoresResponse = await LeaderboardsService.Instance.GetVersionScoresAsync(LeaderboardId, VersionId, new GetVersionScoresOptions{Offset = Offset, Limit = Limit});
         Debug.Log(JsonConvert.SerializeObject(scoresResponse));
     }
 
     public async void GetPlayerVersionScore()
     {
-        var scoreResponse =
-            await LeaderboardsService.Instance.GetVersionPlayerScoreAsync(LeaderboardId, VersionId);
+        var scoreResponse = await LeaderboardsService.Instance.GetVersionPlayerScoreAsync(LeaderboardId, VersionId);
         Debug.Log(JsonConvert.SerializeObject(scoreResponse));
     }
 }
