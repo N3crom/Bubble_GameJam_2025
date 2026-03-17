@@ -8,7 +8,7 @@ public class S_LeaderboardShow : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> textName;
     [SerializeField] private List<TextMeshProUGUI> textScore;
 
-    private void Start()
+    private void Awake()
     {
         LoadEntries();
     }
