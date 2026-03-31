@@ -1,121 +1,45 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using TMPro;
 
 public class S_GameManager : MonoBehaviour
 {
-    [Header("RSE")]
-    [SerializeField] private RSE_CallPause callPause;
-    [SerializeField] private RSE_UnCallPause unCallPause;
+    [TabGroup("Settings")]
+    [Title("Audio")]
+    [SerializeField] private S_ClassAudio audioGame;
 
-    [SerializeField] private RSE_CallRestart callRestart;
-    [SerializeField] private RSE_CallMenu callMenu;
-    [SerializeField] private RSE_CallQuit callQuit;
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnGame rseOnGame;
 
-    [SerializeField] private RSE_OnGameLost onGameLost;
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnPlayAudio rsePlayAudio;
 
-    [Header("RSO")]
-    [SerializeField] private RSO_Score score;
-    [SerializeField] private RSO_PlayerName playerName;
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnShowMouseCursor rseOnShowMouseCursor;
 
-    [Header("References")]
-    [SerializeField] private GameObject panelPause;
-    [SerializeField] private GameObject panelGameOver;
-    [SerializeField] private TextMeshProUGUI textScore;
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnHideMouseCursor rseOnHideMouseCursor;
 
-    private void OnEnable()
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnNeedCursor rseOnNeedCursor;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSO_SettingsSaved rsoSettingsSaved;
+
+    private void Awake()
     {
-        callPause.action += ShowPause;
-        unCallPause.action += UnShowPause;
-
-        callRestart.action += Restart;
-        callMenu.action += Menu;
-        callQuit.action += Quit;
-
-        onGameLost.action += GameOver;
+        Application.targetFrameRate = 120;
     }
 
     private void OnDisable()
     {
-        callPause.action -= ShowPause;
-        unCallPause.action -= UnShowPause;
-
-        callRestart.action -= Restart;
-        callMenu.action -= Menu;
-        callQuit.action -= Quit;
-
-        onGameLost.action -= GameOver;
+        rsoSettingsSaved.Value = new();
     }
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (panelPause.activeInHierarchy)
-            {
-                UnShowPause();
-            }
-            else
-            {
-                ShowPause();
-            }
-        }
-    }
-
-    private void ShowPause()
-    {
-        panelPause.SetActive(true);
-
-        Time.timeScale = 0;
-    }
-
-    private void UnShowPause()
-    {
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-
-        panelPause.SetActive(false);
-
-        Time.timeScale = 1;
-    }
-
-    private void Restart()
-    {
-        Scene currentScene = SceneManager.GetActiveScene();
-
-        int currentSceneIndex = currentScene.buildIndex;
-
-        Time.timeScale = 1;
-
-        SceneManager.LoadScene(currentSceneIndex);
-    }
-
-    private void Menu()
-    {
-        Time.timeScale = 1;
-
-        SceneManager.LoadScene("Scene_MainMenu");
-    }
-
-    private void Quit()
-    {
-        Application.Quit();
-    }
-
-    private void GameOver()
-    {
-        panelGameOver.SetActive(true);
-        textScore.text = "Score: " + score.Score.ToString();
-
-        string textName = "Anonyme";
-
-        if (playerName.PlayerName != null)
-        {
-            textName = playerName.PlayerName;
-        }
-
-        //Leaderboards.Scores.UploadNewEntry(textName, score.Score);
-        //Leaderboards.Scores.ResetPlayer();
-
-        Time.timeScale = 0;
+        rseOnShowMouseCursor.Call();
+        rseOnNeedCursor.Call(true);
+        rseOnGame.Call();
+        rsePlayAudio.Call(audioGame);
     }
 }

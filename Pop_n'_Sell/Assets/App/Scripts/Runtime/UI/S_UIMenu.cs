@@ -1,0 +1,160 @@
+using Sirenix.OdinInspector;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class S_UIMenu : MonoBehaviour
+{
+    [TabGroup("Settings")]
+    [Title("Audio")]
+    [SerializeField] private S_ClassAudio audioWindow;
+
+    [TabGroup("References")]
+    [Title("Levels")]
+    [SerializeField] private S_SceneReference levelName;
+
+    [TabGroup("References")]
+    [Title("Settings Window")]
+    [SerializeField] private GameObject settingsWindow;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnFadeOut rseOnFadeOut;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnOpenWindow rseOnOpenWindow;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnCloseAllWindows rseOnCloseAllWindows;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnQuitGame rseOnQuitGame;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnShowMouseCursor rseOnShowMouseCursor;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnHideMouseCursor rseOnHideMouseCursor;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnNeedCursor rseOnNeedCursor;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnLoadScene rseOnLoadScene;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnStopAllAudio rseStopAllAudio;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnEscapeInput rseOnEscapeInput;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnPlayAudio rsePlayAudio;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnResetFocus rseOnResetFocus;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnGamePause rseOnGamePause;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSO_CurrentWindows rsoCurrentWindows;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSO_Navigation rsoNavigation;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private SSO_FadeTime ssoFadeTime;
+
+    private bool isTransit = false;
+
+    private void OnEnable()
+    {
+        rseOnEscapeInput.action += CloseEscape;
+
+        rseOnShowMouseCursor.Call();
+        rseOnNeedCursor.Call(true);
+
+        isTransit = false;
+
+        rsePlayAudio.Call(audioWindow);
+    }
+
+    private void OnDisable()
+    {
+        rseOnEscapeInput.action -= CloseEscape;
+    }
+
+    private void CloseEscape()
+    {
+        if (rsoCurrentWindows.Value.Count > 0 && rsoCurrentWindows.Value[^1] == gameObject)
+        {
+            ResumeGame();
+        }
+    }
+
+    public void ResumeGame()
+    {
+        if (!isTransit)
+        {
+            rsePlayAudio.Call(audioWindow);
+
+            rseOnHideMouseCursor.Call();
+            rseOnNeedCursor.Call(false);
+
+            rseOnCloseAllWindows.Call();
+            rsoNavigation.Value.selectableDefault = null;
+            rseOnResetFocus.Call();
+
+            rseOnGamePause.Call(false);
+        }
+    }
+
+    public void Settings()
+    {
+        if (!isTransit)
+        {
+            rsoNavigation.Value.selectableFocus = null;
+            rseOnOpenWindow.Call(settingsWindow);
+        }
+    }
+
+    public void MainMenu()
+    {
+        if (!isTransit)
+        {
+            isTransit = true;
+
+            rseOnFadeOut.Call();
+
+            rseStopAllAudio.Call();
+
+            StartCoroutine(S_Utils.DelayRealTime(ssoFadeTime.Value.time, () =>
+            {
+                rsoNavigation.Value.selectableFocus = null;
+
+                rseOnHideMouseCursor.Call();
+
+                StartCoroutine(S_Utils.DelayRealTime(0.8f, () =>
+                {
+                    rseOnLoadScene.Call(levelName.Name);
+                    rseOnGamePause.Call(false);
+                }));
+            }));
+        }
+    }
+
+    public void QuitGame()
+    {
+        if (!isTransit)
+        {
+            isTransit = true;
+
+            rseOnFadeOut.Call();
+
+            StartCoroutine(S_Utils.DelayRealTime(ssoFadeTime.Value.time, () =>
+            {
+                rseOnQuitGame.Call();
+                rsoNavigation.Value.selectableFocus = null;
+            }));
+        }
+    }
+}

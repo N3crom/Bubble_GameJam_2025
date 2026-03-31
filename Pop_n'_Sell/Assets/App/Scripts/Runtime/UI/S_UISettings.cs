@@ -48,7 +48,7 @@ public class S_UISettings : MonoBehaviour
     {
         rseOnEscapeInput.action += CloseEscape;
 
-        if (Gamepad.current == null) rseOnShowMouseCursor.Call();
+        rseOnShowMouseCursor.Call();
 
         isClosing = false;
 

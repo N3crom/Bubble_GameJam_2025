@@ -14,8 +14,8 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.2d.aseprite": {
-      "version": "1.1.10",
-      "depth": 1,
+      "version": "1.1.11",
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.2d.common": "6.0.6",
@@ -95,7 +95,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.burst": {
-      "version": "1.8.28",
+      "version": "1.8.29",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -142,7 +142,7 @@
         "com.unity.2d.spriteshape": "10.1.0",
         "com.unity.2d.tilemap": "1.0.0",
         "com.unity.2d.tilemap.extras": "4.1.0",
-        "com.unity.2d.aseprite": "1.1.10"
+        "com.unity.2d.aseprite": "1.1.11"
       }
     },
     "com.unity.ide.rider": {
@@ -244,7 +244,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.services.authentication": {
-      "version": "3.6.0",
+      "version": "3.6.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -296,7 +296,7 @@
       }
     },
     "com.unity.test-framework.performance": {
-      "version": "3.2.1",
+      "version": "3.4.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -306,7 +306,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.8.10",
+      "version": "1.8.12",
       "depth": 0,
       "source": "registry",
       "dependencies": {

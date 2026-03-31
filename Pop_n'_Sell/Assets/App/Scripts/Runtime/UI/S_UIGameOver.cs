@@ -1,0 +1,110 @@
+using Sirenix.OdinInspector;
+using UnityEngine;
+
+public class S_UIGameOver : MonoBehaviour
+{
+    [TabGroup("Settings")]
+    [Title("Audio")]
+    [SerializeField] private S_ClassAudio audioWindow;
+
+    [TabGroup("References")]
+    [Title("Levels")]
+    [SerializeField] private S_SceneReference levelGame;
+
+    [TabGroup("References")]
+    [SerializeField] private S_SceneReference levelMainMenu;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnShowMouseCursor rseOnShowMouseCursor;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnHideMouseCursor rseOnHideMouseCursor;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnNeedCursor rseOnNeedCursor;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnPlayAudio rsePlayAudio;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnFadeOut rseOnFadeOut;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnStopAllAudio rseStopAllAudio;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnLoadScene rseOnLoadScene;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSE_OnGamePause rseOnGamePause;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private RSO_Navigation rsoNavigation;
+
+    [TabGroup("Outputs")]
+    [SerializeField] private SSO_FadeTime ssoFadeTime;
+
+    private bool isTransit = false;
+
+    private void OnEnable()
+    {
+        isTransit = false;
+
+        rseOnShowMouseCursor.Call();
+        rseOnNeedCursor.Call(true);
+
+        rsePlayAudio.Call(audioWindow);
+    }
+
+    public void Restart()
+    {
+        if (!isTransit)
+        {
+            isTransit = true;
+
+            rseOnFadeOut.Call();
+
+            rseStopAllAudio.Call();
+
+            StartCoroutine(S_Utils.DelayRealTime(ssoFadeTime.Value.time, () =>
+            {
+                rsoNavigation.Value.selectableFocus = null;
+
+                rseOnHideMouseCursor.Call();
+                rseOnNeedCursor.Call(false);
+
+                StartCoroutine(S_Utils.DelayRealTime(0.8f, () =>
+                {
+                    rseOnLoadScene.Call(levelGame.Name);
+                    rseOnGamePause.Call(false);
+                }));
+            }));
+        }
+    }
+
+    public void MainMenu()
+    {
+        if (!isTransit)
+        {
+            isTransit = true;
+
+            rseOnFadeOut.Call();
+
+            rseStopAllAudio.Call();
+
+            StartCoroutine(S_Utils.DelayRealTime(ssoFadeTime.Value.time, () =>
+            {
+                rsoNavigation.Value.selectableFocus = null;
+
+                rseOnHideMouseCursor.Call();
+                rseOnNeedCursor.Call(false);
+
+                StartCoroutine(S_Utils.DelayRealTime(0.8f, () =>
+                {
+                    rseOnLoadScene.Call(levelMainMenu.Name);
+                    rseOnGamePause.Call(false);
+                }));
+            }));
+        }
+    }
+}
