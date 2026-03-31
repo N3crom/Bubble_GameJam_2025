@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4104635971553194808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2057140499486082734}
+  - component: {fileID: 1751873160781166937}
+  m_Layer: 0
+  m_Name: P_MainMenuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2057140499486082734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4104635971553194808}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1751873160781166937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4104635971553194808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c866c1a6d6e91c4f9f6d8e7f0aa0201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMainMenu:
+    clip: {fileID: 8300000, guid: f598edb111c7604409194317a4e3c0ee, type: 3}
+    mixerGroup: {fileID: 2146873307849394114, guid: 3feb214ad05017d4e9c8ff9c65ec08ec, type: 2}
+    fade: 1
+    loop: 1
+    canPause: 0
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    is3D: 0
+    minDistance: 0
+    maxDistance: 500
+  rseOnMainMenu: {fileID: 11400000, guid: db48fb7d48eab3042bcd4bf6202d586f, type: 2}
+  rsePlayAudio: {fileID: 11400000, guid: 9b1736d37b6b2774396e0ad5d0443764, type: 2}
+  rseOnShowMouseCursor: {fileID: 11400000, guid: 2640f77b41dc3dc448bfbbca0e0e8410, type: 2}
+  rseOnHideMouseCursor: {fileID: 11400000, guid: 4672dc6c4734dbb4d8dbbb2d1a070f09, type: 2}
+  rseOnNeedCursor: {fileID: 11400000, guid: 53112d7f759d5744792c985f0a4093c4, type: 2}
+  rsoSettingsSaved: {fileID: 11400000, guid: 254940e70d80efa49bd41df28bdc3292, type: 2}
