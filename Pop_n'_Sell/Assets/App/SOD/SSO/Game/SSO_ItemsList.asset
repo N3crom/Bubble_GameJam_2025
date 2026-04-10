@@ -1,0 +1,217 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9471a4055d41993409f19fc36a662f53, type: 3}
+  m_Name: SSO_ItemsList
+  m_EditorClassIdentifier: 
+  _value:
+  - id: 0
+    name: Soap
+    sprite: {fileID: 21300000, guid: b2e3f398b83c7a645996246de19907b0, type: 3}
+    descriptions:
+    - Hello, I'm looking for an hygiene product, It looks like a small block, that
+      makes average bubbles and it is for cleaning. Do you have this for me please?
+    - Hello, would you have something like a small block, it's an hygiene product,
+      it's for cleaning, the bubbles it makes are average. Please?
+    - Hey do y'all have that thing that's for cleaning, looks like a small block,
+      like an hygiene product, y'know? It makes average bubbles.
+  - id: 1
+    name: Soda
+    sprite: {fileID: 21300000, guid: ae2c90d9b43767747927268197fe790b, type: 3}
+    descriptions:
+    - Hello, I'm looking for a beverage, It looks like a can, that makes tiny bubbles
+      and it is for drinking. Do you have this for me please?
+    - Hello, would you have something like a can, it's a beverage, it's for drinking,
+      the bubbles it makes are tiny. Please?
+    - Hey do y'all have that thing that's for drinking, looks like a can, like a
+      beverage, y'know? It makes tiny bubbles.
+  - id: 2
+    name: Bubble Gun
+    sprite: {fileID: 21300000, guid: 501f9dd3c14d39e4c82fce44fbab0f7a, type: 3}
+    descriptions:
+    - Hello, I'm looking for a toy, It looks like a coloured plastic, that makes
+      average bubbles and it is for playing. Do you have this for me please?
+    - Hello, would you have something like a coloured plastic, it's a toy, it's for
+      playing, the bubbles it makes are average. Please?
+    - Hey do y'all have that thing that's for playing, looks like a coloured plastic,
+      like a toy, y'know? It makes average bubbles.
+  - id: 3
+    name: Bubble Wrap
+    sprite: {fileID: 21300000, guid: b5fe1ee16006a2c4b90f27127e73aeb4, type: 3}
+    descriptions:
+    - Hello, I'm looking for a tool, It looks like a roll, that has tiny aligned
+      bubbles and it is for wraping. Do you have this for me please?
+    - Hello, would you have something like a roll, it's a tool, it's for wraping,
+      it has tiny aligned bubbles. Please?
+    - Hey do y'all have that thing that's for wraping, looks like a roll, like a
+      tool, y'know? It has tiny aligned bubbles.
+  - id: 4
+    name: Chewing Gum
+    sprite: {fileID: 21300000, guid: 666351b779c36434eb4bfa9ef2670f90, type: 3}
+    descriptions:
+    - Hello, I'm looking for food, It looks like a tiny chip, that makes average
+      bubbles and it is for improving concentration. Do you have this for me please?
+    - Hello, would you have something like a tiny chip, it's food, it's for improving
+      concentration, the bubbles it makes are average. Please?
+    - Hey do y'all have that thing that's for improving concentration, looks like
+      a tiny chip, like food, y'know? It makes average bubbles.
+  - id: 5
+    name: Bubble Level
+    sprite: {fileID: 21300000, guid: f3469fb3c523cdd4796903f82a4355aa, type: 3}
+    descriptions:
+    - Hello, I'm looking for a tool, It looks like a thick ruler, that has tiny bubbles
+      and it is for measuring. Do you have this for me please?
+    - Hello, would you have something like a thick ruler, it's a tool, it's for measuring,
+      the bubbles it has are tiny. Please?
+    - Hey do y'all have that thing that's for measuring, looks like a thick ruler,
+      like a tool, y'know? It has tiny bubbles.
+  - id: 6
+    name: Jacuzzi
+    sprite: {fileID: 21300000, guid: 931e39156420fb947888016d427a3f75, type: 3}
+    descriptions:
+    - Hello, I'm looking for a luxury thing, It looks like a big cup, that makes
+      big bubbles and it is for relaxing. Do you have this for me please?
+    - Hello, would you have something like a big cup, it's a luxury thing, it's for
+      relaxing, the bubbles it makes are big. Please?
+    - Hey do y'all have that thing that's for relaxing, looks like a big cup, like
+      a luxury thing, y'know? It makes big bubbles.
+  - id: 7
+    name: Bubble Ball
+    sprite: {fileID: 21300000, guid: 92792877dd1d9004286800f04036acb0, type: 3}
+    descriptions:
+    - Hello, I'm looking for a toy, It looks like a big coat, that is a big bubble
+      and it is for bouncing. Do you have this for me please?
+    - Hello, would you have something like a big coat, it's a toy, it's for bouncing,
+      this is a big bubble. Please?
+    - Hey do y'all have that thing that's for bouncing, looks like a big coat, like
+      a toy, y'know? Its a big bubble.
+  - id: 8
+    name: Bubble Tea
+    sprite: {fileID: 21300000, guid: 4ad49bc07e01a08408ce5d555d201156, type: 3}
+    descriptions:
+    - Hello, I'm looking for a beverage, It looks like a cup, that has many average
+      bubbles and it is for drinking. Do you have this for me please?
+    - Hello, would you have something like a cup, it's a beverage, it's for drinking,
+      the many bubbles it has are average. Please?
+    - Hey do y'all have that thing that's for drinking, looks like a cup, like a
+      beverage, y'know? It has many  average bubbles.
+  - id: 9
+    name: Beer
+    sprite: {fileID: 21300000, guid: b95a0e1c6c8366649ae758d2d7cca340, type: 3}
+    descriptions:
+    - Hello, I'm looking for a beverage, It looks like a pint, that makes tiny bubbles
+      and it is for drinking. Do you have this for me please?
+    - Hello, would you have something like a pint, it's a beverage, it's for drinking,
+      the bubbles it makes are tiny. Please?
+    - Hey do y'all have that thing that's for drinking, looks like a pint, like a
+      beverage, y'know? It makes tiny bubbles.
+  - id: 10
+    name: Sparkling Water
+    sprite: {fileID: 21300000, guid: 89b4d820b6ed4664d9dcae3a210bc0ce, type: 3}
+    descriptions:
+    - Hello, I'm looking for a beverage, It looks like a green bottle, that makes
+      tiny bubbles and it is for drinking. Do you have this for me please?
+    - Hello, would you have something like a green bottle, it's a beverage, it's
+      for drinking, the bubbles it makes are tiny. Please?
+    - Hey do y'all have that thing that's for drinking, looks like a green bottle,
+      like a beverage, y'know? It makes tiny bubbles.
+  - id: 11
+    name: Bubble Umbrella
+    sprite: {fileID: 21300000, guid: e412c490e29777945983c3310eedfe91, type: 3}
+    descriptions:
+    - Hello, I'm looking for a tool, It looks like a transparent dome, that has a
+      big bubble and it is for covering. Do you have this for me please?
+    - Hello, would you have something like a transparent dome, it's a tool, it's
+      for covering, the bubble it has is big. Please?
+    - Hey do y'all have that thing that's for covering, looks like a transparent
+      dome, like a tool, y'know? It has a big bubble.
+  - id: 12
+    name: Washing Powder
+    sprite: {fileID: 21300000, guid: dc51b409953221442bc6d8a6b8fc35d1, type: 3}
+    descriptions:
+    - Hello, I'm looking for an hygiene product, It looks like a bag, that makes
+      average bubbles and it is for cleaning. Do you have this for me please?
+    - Hello, would you have something like a bag, it's an hygiene product, it's for
+      cleaning, the bubbles it makes are average. Please?
+    - Hey do y'all have that thing that's for cleaning, looks like a bag, like an
+      hygiene product, y'know? It makes average bubbles.
+  - id: 13
+    name: Bubble Nebula
+    sprite: {fileID: 21300000, guid: eb0f2c4b661c15f458c7dace1a4dc0ea, type: 3}
+    descriptions:
+    - Hello, I'm looking for an unusual thing, It looks like a big cloud, that has
+      a lightyears large bubble and it is for star making. Do you have this for me
+      please?
+    - Hello, would you have something like a big cloud, it's an unusual thing, it's
+      for star making, the bubble it has is lightyears large. Please?
+    - Hey do y'all have that thing that's for star making, looks like a big cloud,
+      like an unusual thing, y'know? It has a lightyears large bubble.
+  - id: 14
+    name: Lava Lamp
+    sprite: {fileID: 21300000, guid: 5da93bd64885c3049ac04ebab6f06d70, type: 3}
+    descriptions:
+    - Hello, I'm looking for a decoration, It looks like a bright cylinder, that
+      makes average bubbles and it is for shining. Do you have this for me please?
+    - Hello, would you have something like a bright cylinder, it's a decoration,
+      it's for shining, the bubbles it makes are average. Please?
+    - Hey do y'all have that thing that's for shining, looks like a bright cylinder,
+      like a decoration, y'know? It makes average bubbles.
+  - id: 15
+    name: Bubble Tube
+    sprite: {fileID: 21300000, guid: fbad73fb458dd7f4f8f57496bcd10d20, type: 3}
+    descriptions:
+    - Hello, I'm looking for a toy, It looks like a cylinder, that makes average
+      bubbles and it is for playing. Do you have this for me please?
+    - Hello, would you have something like a cylinder, it's a toy, it's for playing,
+      the bubbles it makes are average. Please?
+    - Hey do y'all have that thing that's for playing, looks like a cylinder, like
+      a toy, y'know? It makes average bubbles.
+  - id: 16
+    name: Spatial Bubble
+    sprite: {fileID: 21300000, guid: d0c2b1d039e4e9d49b66c77cfb1a1097, type: 3}
+    descriptions:
+    - Hello, I'm looking for an unusual thing, It looks like a hole in space-time
+      continuum, that has an unfathomable bubble and it is for traveling. Do you
+      have this for me please?
+    - Hello, would you have something like a hole in space-time continuum, it's an
+      unusual thing, it's for traveling, the bubble it has is unfathomable. Please?
+    - Hey do y'all have that thing that's for traveling, looks like a hole in space-time
+      continuum, like an unusual thing, y'know? It has an unfathomable bubble.
+  - id: 17
+    name: Bubble Child
+    sprite: {fileID: 21300000, guid: e23b6cbfcfb01ed4c8432c2035767ab3, type: 3}
+    descriptions:
+    - Hello, I'm looking for an unusual thing, It looks like a child in a bubble,
+      that has a big bubble and it is for adopting. Do you have this for me please?
+    - Hello, would you have something like a child in a bubble, it's an unusual thing,
+      it's for adopting, the bubble it has is big. Please?
+    - Hey do y'all have that thing that's for adopting, looks like a child in a bubble,
+      like an unusual thing, y'know? It has a big bubble.
+  - id: 18
+    name: Molten Lava
+    sprite: {fileID: 21300000, guid: 6626fefedd23a2c4887e8dc3976e555a, type: 3}
+    descriptions:
+    - Hello, I'm looking for a beverage, It looks like a glowing hot liquid, that
+      makes big bubbles and it is for drinking. Do you have this for me please?
+    - Hello, would you have something like a glowing hot liquid, it's a beverage,
+      it's for drinking, the bubbles it makes are big. Please?
+    - Hey do y'all have that thing that's for drinking, looks like a glowing hot
+      liquid, like a beverage, y'know? It makes big bubbles.
+  - id: 19
+    name: Effervescent Drug
+    sprite: {fileID: 21300000, guid: ef7ee700731b627448e234fd055a3971, type: 3}
+    descriptions:
+    - Hello, I'm looking for medication, It looks like a coloured round pill, that
+      makes tiny bubbles and it is for curing. Do you have this for me please?
+    - Hello, would you have something like a coloured round pill, it's medication,
+      it's for curing, the bubbles it makes are tiny. Please?
+    - Hey do y'all have that thing that's for curing, looks like a coloured round
+      pill, like medication, y'know? It makes tiny bubbles.

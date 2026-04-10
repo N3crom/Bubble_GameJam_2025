@@ -15,14 +15,14 @@ public class S_CardsGenerator : MonoBehaviour
     [SerializeField] RSE_OnListGenerationFinish _rseOnListGenerationFinish;
     [SerializeField] SSO_ItemsList _ssoItemsList;
     [SerializeField] RSO_NumberItemsDisplay _rsoNumberItemsDisplay;
-    [SerializeField] RSO_ImpatientTime _rsoImpatientTime;
+    //[SerializeField] RSO_ImpatientTime _rsoImpatientTime;
 
     int _numberStartItems;
     float _startImpatientTime;
     private void Start()
     {
         _numberStartItems = _rsoNumberItemsDisplay.NumberItemsToDisplay;
-        _startImpatientTime = _rsoImpatientTime.ImpatientTime;
+        //_startImpatientTime = _rsoImpatientTime.ImpatientTime;
         //_rsoNumberItemsDisplay.NumberItemsToDisplay = 5;
         _rseOnClientCreate.action += GenerateCards;
         _rseOnTimerStart.action += SpawnCards;
@@ -42,7 +42,7 @@ public class S_CardsGenerator : MonoBehaviour
 
         _rsoItemsListToDisplay.Value.Clear();
 
-        float currentTimeMax = _rsoImpatientTime.ImpatientTime;
+        float currentTimeMax = 0; //_rsoImpatientTime.ImpatientTime;
         _rsoNumberItemsDisplay.NumberItemsToDisplay = _numberStartItems + _maxItemsToDisplay - Mathf.CeilToInt(currentTimeMax / _startImpatientTime * 100 * _addItemsAfterPourcentageOfStartImpateintTime);
         _rsoNumberItemsDisplay.NumberItemsToDisplay = Mathf.Clamp(_rsoNumberItemsDisplay.NumberItemsToDisplay, _numberStartItems, _maxItemsToDisplay);
         //Debug.Log(Mathf.RoundToInt(_startImpatientTime / currentTimeMax * 100 * _addItemsAfterPourcentageOfStartImpateintTime));
@@ -52,7 +52,7 @@ public class S_CardsGenerator : MonoBehaviour
             return;
         }
 
-        _rsoItemsListToDisplay.Value.Add(_ssoItemsList.Value.FirstOrDefault(item => item.Id == currentCustomer.ItemWanted.Id));
+        _rsoItemsListToDisplay.Value.Add(_ssoItemsList.Value.FirstOrDefault(item => item.id == currentCustomer.itemWanted.id));
 
         int numberCards = 1;
 

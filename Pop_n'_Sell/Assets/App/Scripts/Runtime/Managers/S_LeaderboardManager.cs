@@ -18,7 +18,7 @@ public class S_LeaderboardManager : MonoBehaviour
     [SerializeField] private RSO_Leaderboard rsoLeaderboard;
 
     [TabGroup("Outputs")]
-    [SerializeField] private RSO_Player rsoPlayer;
+    [SerializeField] private RSO_PlayerName rsoPlayer;
 
     private const string LeaderboardId = "scores";
 

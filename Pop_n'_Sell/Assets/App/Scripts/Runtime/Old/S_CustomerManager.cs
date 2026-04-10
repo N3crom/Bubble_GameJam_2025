@@ -30,7 +30,7 @@ public class S_CustomerManager : MonoBehaviour
     [SerializeField] RSE_OnCustomerStateChange _rseOnCustomerStateChange;
     [SerializeField] RSE_OnCustomerShake _rseOnCustomerShake;
     [SerializeField] RSE_OnClientGoToRight _rseOnClientGoToRight;
-    [SerializeField] RSO_ImpatientTime _rsoImpatientTime;
+    //[SerializeField] RSO_ImpatientTime _rsoImpatientTime;
     [SerializeField] AudioSource _audioSource;
     [SerializeField] AudioClip _audioClipWrongCards;
     [SerializeField] AudioClip _audioClipGoodCards;
@@ -45,7 +45,7 @@ public class S_CustomerManager : MonoBehaviour
 
     private void Awake()
     {
-        _initialImpactientTimeValue = _rsoImpatientTime.ImpatientTime;
+        //_initialImpactientTimeValue = _rsoImpatientTime.ImpatientTime;
     }
     // Start is called before the first frame update
     void Start()
@@ -71,7 +71,7 @@ public class S_CustomerManager : MonoBehaviour
 
         _rseOnTimerEnd.action -= TimerEnd;
 
-        _rsoImpatientTime.ImpatientTime = _initialImpactientTimeValue;
+        //_rsoImpatientTime.ImpatientTime = _initialImpactientTimeValue;
     }
 
 
@@ -86,12 +86,12 @@ public class S_CustomerManager : MonoBehaviour
         if (System.Enum.IsDefined(typeof(S_EnumCustomerState), randomIndex))
         {
             var customerState = (S_EnumCustomerState)randomIndex;
-            customer.CustomerState = customerState;
+            customer.customerState = customerState;
         }
-        customer.CustomerState = S_EnumCustomerState.Neutral;
-        customer.ItemWanted = itemWanted;
-        itemId = itemWanted.Id;
-        customer.SpritesDict = spritesDict;
+        customer.customerState = S_EnumCustomerState.Neutral;
+        customer.itemWanted = itemWanted;
+        itemId = itemWanted.id;
+        customer.spritesDict = spritesDict;
 
         CurrentCustomer = customer;
 
@@ -106,7 +106,7 @@ public class S_CustomerManager : MonoBehaviour
 
     void TcheckItemIdGive(int id)
     {
-        if (CurrentCustomer.ItemWanted.Id == id)
+        if (CurrentCustomer.itemWanted.id == id)
         {
             _audioSource.volume = 1f;
 
@@ -169,7 +169,7 @@ public class S_CustomerManager : MonoBehaviour
         //_rsoImpatientTime.ImpatientTime -= _rsoImpatientTime.ImpatientTime * _multiplicateurTimePurcentage;
         //Debug.Log($"Value before clamp: {_rsoImpatientTime.ImpatientTime}");
 
-        _rsoImpatientTime.ImpatientTime = Mathf.Clamp(_rsoImpatientTime.ImpatientTime, _minimumTimeImpatientValue, 10);
+        //_rsoImpatientTime.ImpatientTime = Mathf.Clamp(_rsoImpatientTime.ImpatientTime, _minimumTimeImpatientValue, 10);
         //Debug.Log($" Value after clamp: {_rsoImpatientTime.ImpatientTime}");
         CreateCustomer();
 
@@ -178,7 +178,7 @@ public class S_CustomerManager : MonoBehaviour
 
     void ReduceImpatienteTime()
     {
-        _rsoImpatientTime.ImpatientTime -= _rsoImpatientTime.ImpatientTime * _multiplicateurTimePurcentage;
+        //_rsoImpatientTime.ImpatientTime -= _rsoImpatientTime.ImpatientTime * _multiplicateurTimePurcentage;
     }
 
 

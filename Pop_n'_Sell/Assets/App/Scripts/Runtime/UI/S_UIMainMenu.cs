@@ -69,7 +69,7 @@ public class S_UIMainMenu : MonoBehaviour
     [SerializeField] private RSO_Navigation rsoNavigation;
 
     [TabGroup("Outputs")]
-    [SerializeField] private RSO_Player rsoPlayer;
+    [SerializeField] private RSO_PlayerName rsoPlayer;
 
     [TabGroup("Outputs")]
     [SerializeField] private SSO_FadeTime ssoFadeTime;

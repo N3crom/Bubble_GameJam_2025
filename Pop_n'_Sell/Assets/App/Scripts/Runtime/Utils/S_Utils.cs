@@ -88,4 +88,30 @@ public static class S_Utils
         }
     }
     #endregion
+
+    #region Debug
+    public static void Log(string message, object sender = null)
+    {
+        #if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (sender != null) Debug.Log($"[{sender.GetType().Name}]: {message}");
+        else Debug.Log($"{message}");
+        #endif
+    }
+
+    public static void LogWarning(string message, object sender = null)
+    {
+        #if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (sender != null) Debug.LogWarning($"[{sender.GetType().Name}]: {message}");
+        else Debug.LogWarning($"{message}");
+        #endif
+    }
+
+    public static void LogError(string message, object sender = null)
+    {
+        #if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (sender != null) Debug.LogError($"[{sender.GetType().Name}]: {message}");
+        else Debug.LogError($"{message}");
+        #endif
+    }
+    #endregion
 }

@@ -9,7 +9,7 @@ public class S_ScoreManager : MonoBehaviour
     [SerializeField] RSO_Score _rsoScore;
     [SerializeField] RSE_AddScore _rseAddScore;
     [SerializeField] RSE_OnScoreChanged _rseOnScoreChanged;
-    [SerializeField] RSO_ImpatientTime _rsoImpatientTime;
+    //[SerializeField] RSO_ImpatientTime _rsoImpatientTime;
     [SerializeField] RSO_Reputation _rsoReputation;
     [SerializeField] RSO_CurrentImpatientTime _rsoCurrentImpatientTime;
     [SerializeField] SSO_ScoreMultiplicateur _ssoScoreMultiplicateur;
@@ -33,11 +33,11 @@ public class S_ScoreManager : MonoBehaviour
     {
         float startScore = _rsoScore.Score;
 
-        float impatienceRatio = (float)_rsoCurrentImpatientTime.CurrentImpatientTime / _rsoImpatientTime.ImpatientTime;
+        //float impatienceRatio = (float)_rsoCurrentImpatientTime.CurrentImpatientTime / _rsoImpatientTime.ImpatientTime;
 
-        int pourcentageTime = Mathf.RoundToInt(_rsoCurrentImpatientTime.CurrentImpatientTime / _rsoImpatientTime.ImpatientTime * 100);
+        //int pourcentageTime = Mathf.RoundToInt(_rsoCurrentImpatientTime.CurrentImpatientTime / _rsoImpatientTime.ImpatientTime * 100);
 
-        int score = Mathf.RoundToInt(scoreAdd * GetMultiplicateurForTime(pourcentageTime, _ssoScoreMultiplicateur.TimeMultiplicateursList) * GetMultiplicateurForReputation(_rsoReputation.ReputationCurrency, _ssoScoreMultiplicateur.ReputationMultiplicateursList));
+        int score = Mathf.RoundToInt(scoreAdd * GetMultiplicateurForTime(0, _ssoScoreMultiplicateur.TimeMultiplicateursList) * GetMultiplicateurForReputation(_rsoReputation.ReputationCurrency, _ssoScoreMultiplicateur.ReputationMultiplicateursList));
         float targetScore = startScore + score;
 
         float elapsedTime = 0f;

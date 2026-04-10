@@ -126,13 +126,13 @@ public class S_Customer : MonoBehaviour, IDropHandler
     void Initialize(S_ClassCustomer customer)
     {
         _customer = customer;
-        _imageClient.sprite = customer.SpritesDict[customer.CustomerState];
+        _imageClient.sprite = customer.spritesDict[customer.customerState];
         StartCoroutine(CustomerSpawn());
     }
 
     void ChangeStateSprite(S_EnumCustomerState customerState)
     {
-        _imageClient.sprite = _customer.SpritesDict[customerState];
+        _imageClient.sprite = _customer.spritesDict[customerState];
     }
 
 
