@@ -97,9 +97,6 @@ public class S_UIMenu : MonoBehaviour
         {
             rsePlayAudio.Call(audioWindow);
 
-            rseOnHideMouseCursor.Call();
-            rseOnNeedCursor.Call(false);
-
             rseOnCloseAllWindows.Call();
             rsoNavigation.Value.selectableDefault = null;
             rseOnResetFocus.Call();
